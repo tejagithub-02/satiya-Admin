@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raanvi Admin KYC Pending</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="assets/style.css" rel="stylesheet">
+
+</head>
+<body>
+  <!-- Topbar -->
+  <nav class="topbar text-white flex justify-between items-center">
+    <div class="flex items-center space-x-4">
+      <i class="fas fa-bars sidebar-toggle hidden md:block text-white" id="sidebar-toggle"></i>
+      <img src="images/R-logo.jpg" alt="Raanvi Logo" class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain">
+      <i class="fas fa-bars menu-toggle block md:hidden text-white" id="menu-toggle"></i>
+    </div>
+    <div class="flex items-center relative">
+      <i class="fas fa-user-circle admin-icon" id="admin-icon"></i>
+      <div class="admin-dropdown" id="admin-dropdown">
+        <a href="profile-details.html" class="dropdown-item">My Profile</a>
+        <a href="change-password.html" class="dropdown-item">Change Password</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <i class="fas fa-times sidebar-expand" id="sidebar-expand"></i>
+      <a href="index.html" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+      <a href="user-id-details.html" data-section="user-id-details"><i class="fas fa-id-card"></i> <span>User-ID Details</span></a>
+      <div class="sidebar-item">
+        <a href="#" id="kyc-toggle" class="active"><i class="fas fa-file-upload"></i> <span>KYC</span> <i class="fas fa-chevron-down dropdown-icon active"></i></a>
+        <div class="submenu active" id="kyc-submenu">
+          <a href="Kyc-pending.html" data-section="kyc-pending" class="active"><i class="fas fa-hourglass-half"></i> <span>Pending KYC</span></a>
+          <a href="Kyc-history.html" data-section="kyc-history"><i class="fas fa-history"></i> <span>KYC History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="earnings-toggle"><i class="fas fa-money-check-alt"></i> <span>Earning History</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="earnings-submenu">
+          <a href="referral-bonus.html" data-section="earnings-referral"><i class="fas fa-gift"></i> <span>Referral Bonus</span></a>
+          <a href="leadership-bonus.html" data-section="earnings-leadership"><i class="fas fa-trophy"></i> <span>Leadership Bonus</span></a>
+          <a href="rank-reward.html" data-section="earnings-rank"><i class="fas fa-medal"></i> <span>Rank & Reward</span></a>
+          <a href="pending-tour.html" data-section="earnings-pending-tour"><i class="fas fa-plane"></i> <span>Pending Tour</span></a>
+          <a href="complete-tour.html" data-section="earnings-complete-tour"><i class="fas fa-check-circle"></i> <span>Complete Tour</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="topup-toggle"><i class="fas fa-wallet"></i> <span>Topup</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="topup-submenu">
+          <a href="initiate-topup.html" data-section="topup-initiate"><i class="fas fa-credit-card"></i> <span>Initiate Topup</span></a>
+          <a href="topup-history.html" data-section="topup-history"><i class="fas fa-history"></i> <span>Topup History</span></a>
+          <a href="topup-refund.html" data-section="topup-refund"><i class="fas fa-undo"></i> <span>Topup Refund</span></a>
+          <a href="topup-refund-history.html" data-section="topup-refund-history"><i class="fas fa-file-alt"></i> <span>Topup Refund History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="order-toggle"><i class="fas fa-shopping-cart"></i> <span>Order</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="order-submenu">
+          <a href="order-transaction.html" data-section="order-transaction"><i class="fas fa-receipt"></i> <span>Transaction</span></a>
+          <a href="order-transaction-history.html" data-section="order-transaction-history"><i class="fas fa-history"></i> <span>Transaction History</span></a>
+          <a href="order-product.html" data-section="order-product"><i class="fas fa-box"></i> <span>Product Order</span></a>
+          <a href="order-product-history.html" data-section="order-product-history"><i class="fas fa-file-alt"></i> <span>Product History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="withdrawal-toggle"><i class="fas fa-money-bill"></i> <span>Withdrawal</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="withdrawal-submenu">
+          <a href="pending-withdrawal.html" data-section="withdrawal-pending"><i class="fas fa-hourglass-half"></i> <span>Pending Withdrawal</span></a>
+          <a href="withdrawal-history.html" data-section="withdrawal-history"><i class="fas fa-history"></i> <span>Withdrawal History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="invoice-toggle"><i class="fas fa-file-invoice"></i> <span>Invoice</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="invoice-submenu">
+          <a href="invoice-gst.html" data-section="invoice-gst"><i class="fas fa-percent"></i> <span>GST Statement</span></a>
+          <a href="invoice-admin.html" data-section="invoice-admin"><i class="fas fa-user-shield"></i> <span>Service Charges 10%</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="capping-toggle"><i class="fas fa-trophy"></i> <span>Capping Achiever</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu "id="capping-submenu">
+          <a href="capping-2000.html" data-section="capping-2000" ><i class="fas fa-star"></i> <span>100 RV</span></a>
+          <a href="capping-10000.html" data-section="capping-10000"><i class="fas fa-star"></i> <span>1000 RV</span></a>
+          <a href="capping-20000.html" data-section="capping-20000"><i class="fas fa-star"></i> <span>2000 RV</span></a>
+        </div>
+      </div>
+      <a href="company-offer.html" data-section="offer"><i class="fas fa-gift"></i> <span>Company Offer</span></a>
+      <div class="sidebar-item">
+        <a href="#" id="gallery-toggle"><i class="fas fa-image"></i> <span>Gallery</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="gallery-submenu">
+          <a href="gallery-plan.html" data-section="gallery-plan"><i class="fas fa-file-pdf"></i> <span>Business Plan</span></a>
+          <a href="gallery-photo.html" data-section="gallery-photo"><i class="fas fa-camera"></i> <span>Photo</span></a>
+          <a href="gallery-news.html" data-section="gallery-news"><i class="fas fa-newspaper"></i> <span>News</span></a>
+          <a href="gallery-event.html" data-section="gallery-event"><i class="fas fa-calendar"></i> <span>Event</span></a>
+          <a href="gallery-video.html" data-section="gallery-video"><i class="fas fa-video"></i> <span>Video</span></a>
+          <a href="gallery-product.html" data-section="gallery-product"><i class="fas fa-box"></i> <span>Product Image</span></a>
+          <a href="gallery-add-product.html" data-section="gallery-add-product"><i class="fas fa-plus"></i> <span>Add Product</span></a>
+        </div>
+      </div>
+      <a href="#" id="sidebar-sign-out"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="section">
+        <!-- KYC History Section -->
+        <h2 class="text-2xl font-bold mb-4 text-white">KYC Pending</h2>
+        <div class="search-bar">
+          <input type="text" placeholder="ID Number" id="kyc-id-search">
+          <input type="date" id="kyc-start-date" placeholder="mm/dd/yyyy">
+          <input type="date" id="kyc-end-date" placeholder="mm/dd/yyyy">
+          <button onclick="searchKyc()">Search</button>
+        </div>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>SI.NO</th>
+                <th>USER ID</th>
+                <th class="name-column">USER Name</th>
+                <th>Date</th>
+                <th class="status-column">Aadhar card .no</th>
+                <th>PAN Card .no</th>
+                <th>Account Details</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="kyc-table">
+              <!-- Table rows will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <footer class="main-footer">
+        @2025 Raanvi - Developed By Bloom It Solutions
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sidebarToggle = document.getElementById('sidebar-toggle');
+      const sidebarExpand = document.getElementById('sidebar-expand');
+      const sidebar = document.querySelector('.sidebar');
+      const mainContent = document.querySelector('.main-content');
+      const menuToggle = document.getElementById('menu-toggle');
+      const adminIcon = document.getElementById('admin-icon');
+      const adminDropdown = document.getElementById('admin-dropdown');
+
+      // Sidebar collapse/expand for desktop
+      if (sidebarToggle && sidebarExpand && sidebar && mainContent) {
+        sidebarToggle.addEventListener('click', () => {
+          const isCollapsed = sidebar.classList.toggle('collapsed');
+          mainContent.classList.toggle('collapsed');
+          sidebarExpand.style.display = isCollapsed && window.innerWidth >= 769 ? 'block' : 'none';
+          document.querySelectorAll('.submenu').forEach((submenu) => submenu.classList.remove('active'));
+          document.querySelectorAll('.dropdown-icon').forEach((icon) => icon.classList.remove('active'));
+        });
+        sidebarExpand.addEventListener('click', () => {
+          sidebar.classList.remove('collapsed');
+          mainContent.classList.remove('collapsed');
+          sidebarExpand.style.display = 'none';
+        });
+      }
+
+      // Sidebar toggle for mobile
+      if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('active');
+        });
+      }
+
+      // Admin dropdown toggle
+      if (adminIcon && adminDropdown) {
+        adminIcon.addEventListener('click', (e) => {
+          e.stopPropagation();
+          adminDropdown.classList.toggle('active');
+        });
+        document.addEventListener('click', (e) => {
+          if (!adminIcon.contains(e.target) && !adminDropdown.contains(e.target)) {
+            adminDropdown.classList.remove('active');
+          }
+        });
+      }
+
+      // Submenu toggle
+      const submenuToggles = [
+        { toggle: 'kyc-toggle', submenu: 'kyc-submenu' },
+        { toggle: 'earnings-toggle', submenu: 'earnings-submenu' },
+        { toggle: 'topup-toggle', submenu: 'topup-submenu' },
+        { toggle: 'order-toggle', submenu: 'order-submenu' },
+        { toggle: 'withdrawal-toggle', submenu: 'withdrawal-submenu' },
+        { toggle: 'invoice-toggle', submenu: 'invoice-submenu' },
+        { toggle: 'capping-toggle', submenu: 'capping-submenu' },
+        { toggle: 'gallery-toggle', submenu: 'gallery-submenu' },
+      ];
+
+      submenuToggles.forEach(({ toggle, submenu }) => {
+        const toggleEl = document.getElementById(toggle);
+        const submenuEl = document.getElementById(submenu);
+        const icon = toggleEl?.querySelector('.dropdown-icon');
+
+        if (toggleEl && submenuEl && icon) {
+          toggleEl.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isActive = submenuEl.classList.toggle('active');
+            icon.classList.toggle('active');
+            submenuToggles.forEach((other) => {
+              if (other.submenu !== submenu) {
+                document.getElementById(other.submenu).classList.remove('active');
+                document.getElementById(other.toggle).querySelector('.dropdown-icon').classList.remove('active');
+              }
+            });
+          });
+
+          const submenuLinks = submenuEl.querySelectorAll('a');
+          submenuLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+              if (window.innerWidth <= 768) {
+                sidebar.classList.remove('active');
+              }
+            });
+          });
+
+          document.addEventListener('click', (e) => {
+            if (!toggleEl.contains(e.target) && !submenuEl.contains(e.target)) {
+              if (submenu !== 'kyc-submenu') {
+                submenuEl.classList.remove('active');
+                icon.classList.remove('active');
+              }
+            }
+          });
+        }
+      });
+
+      // Mock data for KYC History with additional entries
+      const mockData = [
+        {
+          id: '125',
+          name: 'Alice Brown',
+          date: '2025-04-29',
+          aadhar: '1234 5678 9120',
+          pan: 'ABCDE1234F',
+          account: '12345678901',
+          status: 'Pending',
+          actionTaken: false,
+        },
+      
+       
+        {
+          id: '128',
+          name: 'Robert Johnson',
+          date: '2025-05-05',
+          aadhar: '2345 6789 1234',
+          pan: 'LMNOP3456J',
+          account: '67890123456',
+          status: 'Pending',
+          actionTaken: false,
+        }
+      ];
+
+      // Function to format dates as "MMM DD, YYYY"
+      function formatDate(dateStr) {
+        const date = new Date(dateStr);
+        const options = { year: 'numeric', month: 'short', day: '2-digit' };
+        return date.toLocaleDateString('en-US', options).replace(/(\d+),/, '$1,');
+      }
+
+      // Handle View Button Click for specific field
+      window.viewKycField = (id, field) => {
+        const entry = mockData.find((item) => item.id === id);
+        if (entry) {
+          let fieldName;
+          let value;
+          switch (field) {
+            case 'aadhar':
+              fieldName = 'Aadhar Card Number';
+              value = entry.aadhar;
+              break;
+            case 'pan':
+              fieldName = 'PAN Card Number';
+              value = entry.pan;
+              break;
+            case 'account':
+              fieldName = 'Account Number';
+              value = entry.account;
+              break;
+            default:
+              return;
+          }
+          alert(`${fieldName} for ${entry.name}: ${value}`);
+          // Optionally, extend to open a modal or redirect to a details page
+        }
+      };
+
+      // Handle KYC Action (Accept/Reject)
+      window.handleKycAction = (id, newStatus, button) => {
+        const entry = mockData.find((item) => item.id === id);
+        if (entry && !entry.actionTaken) {
+          entry.status = newStatus;
+          entry.actionTaken = true;
+          // Disable both buttons in the same row
+          const row = button.closest('tr');
+          const buttons = row.querySelectorAll('.btn-accept, .btn-reject');
+          buttons.forEach((btn) => (btn.disabled = true));
+          // Update the table
+          renderKycTable(mockData);
+        }
+      };
+
+      // KYC Search Function
+      window.searchKyc = () => {
+        const id = document.getElementById('kyc-id-search').value;
+        const startDate = document.getElementById('kyc-start-date').value;
+        const endDate = document.getElementById('kyc-end-date').value;
+        let filtered = mockData;
+        if (id) filtered = filtered.filter((item) => item.id.includes(id));
+        if (startDate) filtered = filtered.filter((item) => item.date >= startDate);
+        if (endDate) filtered = filtered.filter((item) => item.date <= endDate);
+        renderKycTable(filtered);
+      };
+
+      // Render KYC Table
+      function renderKycTable(data = mockData) {
+        const tbody = document.getElementById('kyc-table');
+        tbody.innerHTML = data.length > 0 ? data.map((item, index) => `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${item.id}</td>
+            <td class="name-column">${item.name}</td>
+            <td class="date-column">${formatDate(item.date)}</td>
+            <td class="status-column">
+              <button class="btn-view" data-id="${item.id}" onclick="viewKycField('${item.id}', 'aadhar')">View</button>
+            </td>
+            <td>
+              <button class="btn-view" data-id="${item.id}" onclick="viewKycField('${item.id}', 'pan')">View</button>
+            </td>
+            <td>
+              <button class="btn-view" data-id="${item.id}" onclick="viewKycField('${item.id}', 'account')">View</button>
+            </td>
+            <td>
+              <div class="action-buttons">
+                <button class="btn-accept" data-id="${item.id}" onclick="handleKycAction('${item.id}', 'Approved', this)" ${item.actionTaken ? 'disabled' : ''}>Accept</button>
+                <button class="btn-reject" data-id="${item.id}" onclick="handleKycAction('${item.id}', 'Rejected', this)" ${item.actionTaken ? 'disabled' : ''}>Reject</button>
+              </div>
+            </td>
+          </tr>
+        `).join('') : `
+          <tr>
+            <td colspan="8" style="text-align: center; color: #b3e0ff;">No KYC records found</td>
+          </tr>
+        `;
+      }
+
+      // Initial render
+      renderKycTable();
+    });
+  </script>
+</body>
+</html>

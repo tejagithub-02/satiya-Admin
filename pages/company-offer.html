@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raanvi Company Offer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="assets/style.css">
+ 
+</head>
+<body>
+  <nav class="topbar text-white flex justify-between items-center">
+    <div class="flex items-center space-x-4">
+      <i class="fas fa-bars sidebar-toggle hidden md:block text-white" id="sidebar-toggle"></i>
+      <img src="images/R-logo.jpg" alt="Raanvi Logo" class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain">
+      <i class="fas fa-bars menu-toggle block md:hidden text-white" id="menu-toggle"></i>
+    </div>
+    <div class="flex items-center relative">
+      <i class="fas fa-user-circle admin-icon" id="admin-icon"></i>
+      <div class="admin-dropdown" id="admin-dropdown">
+        <a href="profile-details.html" class="dropdown-item">My Profile</a>
+        <a href="change-password.html" class="dropdown-item">Change Password</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <div class="sidebar">
+      <i class="fas fa-times sidebar-expand" id="sidebar-expand"></i>
+      <a href="index.html" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+      <a href="user-id-details.html" data-section="user-id-details"><i class="fas fa-id-card"></i> <span>User-ID Details</span></a>
+      <div class="sidebar-item">
+        <a href="#" id="kyc-toggle"><i class="fas fa-file-upload"></i> <span>KYC</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="kyc-submenu">
+          <a href="Kyc-pending.html" data-section="kyc-pending"><i class="fas fa-hourglass-half"></i> <span>Pending KYC</span></a>
+          <a href="Kyc-history.html" data-section="kyc-history"><i class="fas fa-history"></i> <span>KYC History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="earnings-toggle"><i class="fas fa-money-check-alt"></i> <span>Earning History</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="earnings-submenu">
+          <a href="referral-bonus.html" data-section="earnings-referral"><i class="fas fa-gift"></i> <span>Referral Bonus</span></a>
+          <a href="leadership-bonus.html" data-section="earnings-leadership"><i class="fas fa-trophy"></i> <span>Leadership Bonus</span></a>
+          <a href="rank-reward.html" data-section="earnings-rank"><i class="fas fa-medal"></i> <span>Rank & Reward</span></a>
+          <a href="pending-tour.html" data-section="earnings-pending-tour"><i class="fas fa-plane"></i> <span>Pending Tour</span></a>
+          <a href="complete-tour.html" data-section="earnings-complete-tour"><i class="fas fa-check-circle"></i> <span>Complete Tour</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="topup-toggle"><i class="fas fa-wallet"></i> <span>Topup</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="topup-submenu">
+          <a href="initiate-topup.html" data-section="topup-initiate"><i class="fas fa-credit-card"></i> <span>Initiate Topup</span></a>
+          <a href="topup-history.html" data-section="topup-history"><i class="fas fa-history"></i> <span>Topup History</span></a>
+          <a href="topup-refund.html" data-section="topup-refund"><i class="fas fa-undo"></i> <span>Topup Refund</span></a>
+          <a href="topup-refund-history.html" data-section="topup-refund-history"><i class="fas fa-file-alt"></i> <span>Topup Refund History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="order-toggle"><i class="fas fa-shopping-cart"></i> <span>Order</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="order-submenu">
+          <a href="order-transaction.html" data-section="order-transaction"><i class="fas fa-receipt"></i> <span>Transaction</span></a>
+          <a href="order-transaction-history.html" data-section="order-transaction-history"><i class="fas fa-history"></i> <span>Transaction History</span></a>
+          <a href="order-product.html" data-section="order-product"><i class="fas fa-box"></i> <span>Product Order</span></a>
+          <a href="order-product-history.html" data-section="order-product-history"><i class="fas fa-file-alt"></i> <span>Product History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="withdrawal-toggle"><i class="fas fa-money-bill"></i> <span>Withdrawal</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="withdrawal-submenu">
+          <a href="pending-withdrawal.html" data-section="withdrawal-pending"><i class="fas fa-hourglass-half"></i> <span>Pending Withdrawal</span></a>
+          <a href="withdrawal-history.html" data-section="withdrawal-history"><i class="fas fa-history"></i> <span>Withdrawal History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="invoice-toggle"><i class="fas fa-file-invoice"></i> <span>Invoice</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="invoice-submenu">
+          <a href="invoice-gst.html" data-section="invoice-gst"><i class="fas fa-percent"></i> <span>GST Statement/span></a>
+          <a href="invoice-admin.html" data-section="invoice-admin"><i class="fas fa-user-shield"></i> <span>Service Charges 10%</span></a>
+         
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="capping-toggle"><i class="fas fa-trophy"></i> <span>Capping Achiever</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="capping-submenu">
+          <a href="capping-2000.html" data-section="capping-2000"><i class="fas fa-star"></i> <span>100 RV</span></a>
+          <a href="capping-10000.html" data-section="capping-10000"><i class="fas fa-star"></i> <span>1000 RV</span></a>
+          <a href="capping-20000.html" data-section="capping-20000"><i class="fas fa-star"></i> <span>2000 RV</span></a>
+        </div>
+      </div>
+      <a href="company-offer.html" data-section="offer" class="active"><i class="fas fa-gift"></i> <span>Company Offer</span></a>
+      <div class="sidebar-item">
+        <a href="#" id="gallery-toggle"><i class="fas fa-image"></i> <span>Gallery</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="gallery-submenu">
+          <a href="gallery-plan.html" data-section="gallery-plan"><i class="fas fa-file-pdf"></i> <span>Business Plan</span></a>
+          <a href="#" data-section="gallery-photo"><i class="fas fa-camera"></i> <span>Photo</span></a>
+          <a href="gallery-news.html" data-section="gallery-news"><i class="fas fa-newspaper"></i> <span>News</span></a>
+          <a href="gallery-event.html" data-section="gallery-event"><i class="fas fa-calendar"></i> <span>Event</span></a>
+          <a href="gallery-video.html" data-section="gallery-video"><i class="fas fa-video"></i> <span>Video</span></a>
+          <a href="gallery-product.html" data-section="gallery-product"><i class="fas fa-box"></i> <span>Product Image</span></a>
+          <a href="gallery-add-product.html" data-section="gallery-add-product"><i class="fas fa-plus"></i> <span>Add Product</span></a>
+        </div>
+      </div>
+      <a href="#" id="sidebar-sign-out"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a>
+    </div>
+
+    <div class="main-content">
+      <div class="section">
+        <h2 class="text-2xl font-bold mb-4 text-white">Company Offers</h2>
+        <div class="add-offer-form">
+          <h3>Add New Offer</h3>
+          <div class="form-group">
+            <label for="offer-id">Offer ID</label>
+            <input type="text" id="offer-id" placeholder="e.g., OFF12345" required>
+          </div>
+          <div class="form-group">
+            <label for="offer-title">Title</label>
+            <input type="text" id="offer-title" placeholder="e.g., Summer Discount" required>
+          </div>
+          <div class="form-group">
+            <label for="offer-description">Description</label>
+            <textarea id="offer-description" placeholder="e.g., 20% off on all health supplements" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="offer-from-date">From Date</label>
+            <input type="date" id="offer-from-date" required>
+          </div>
+          <div class="form-group">
+            <label for="offer-end-date">End Date</label>
+            <input type="date" id="offer-end-date" required>
+          </div>
+          <div class="form-group">
+            <label for="offer-status">Status</label>
+            <select id="offer-status" required>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+          <button onclick="addOffer()">Add Offer</button>
+        </div>
+        <div class="search-bar">
+          <div class="flex gap-2 flex-wrap">
+            <input type="text" placeholder="Offer ID" id="offer-id-search">
+            <input type="date" id="start-date">
+            <input type="date" id="end-date">
+            <select id="status-filter">
+              <option value="">All Statuses</option>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+            
+            <button onclick="searchOffers()">Search</button>
+            <button class="delete-btn" onclick="toggleDeleteMode()">Delete</button>
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>SI.No</th>
+                <th>Offer ID</th>
+                <th>From Date</th>
+                <th>End Date</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="offer-table">
+              <!-- Table rows populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <footer class="main-footer">
+        @2025 Raanvi - Developed By Bloom It Solutions
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        console.log('DOM fully loaded, initializing...');
+
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebarExpand = document.getElementById('sidebar-expand');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+        const menuToggle = document.getElementById('menu-toggle');
+        const adminIcon = document.getElementById('admin-icon');
+        const adminDropdown = document.getElementById('admin-dropdown');
+
+        if (!sidebar || !mainContent) {
+          console.error('Sidebar or main-content element not found');
+          return;
+        }
+
+        if (sidebarToggle && sidebarExpand) {
+          sidebarToggle.addEventListener('click', () => {
+            const isCollapsed = sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('collapsed');
+            sidebarExpand.style.display = isCollapsed && window.innerWidth >= 769 ? 'block' : 'none';
+            document.querySelectorAll('.submenu').forEach(submenu => submenu.classList.remove('active'));
+            document.querySelectorAll('.dropdown-icon').forEach(icon => icon.classList.remove('active'));
+            console.log(`Sidebar toggled, collapsed: ${isCollapsed}`);
+          });
+          sidebarExpand.addEventListener('click', () => {
+            sidebar.classList.remove('collapsed');
+            mainContent.classList.remove('collapsed');
+            sidebarExpand.style.display = 'none';
+            console.log('Sidebar expanded');
+          });
+        } else {
+          console.warn('Sidebar toggle or expand elements not found');
+        }
+
+        if (menuToggle && sidebar) {
+          menuToggle.addEventListener('click', (e) => {
+            try {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log('Menu toggle clicked');
+              const isActive = sidebar.classList.toggle('active');
+              sidebar.style.transform = isActive ? 'translateX(0)' : 'translateX(-100%)';
+              console.log(`Sidebar toggled to active: ${isActive}`);
+            } catch (error) {
+              console.error('Error in menu toggle:', error);
+            }
+          });
+        } else {
+          console.warn('Menu toggle or sidebar element not found');
+        }
+
+        document.addEventListener('click', (e) => {
+          try {
+            if (window.innerWidth <= 768 && sidebar.classList.contains('active') && !sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+              console.log('Clicked outside sidebar on mobile');
+              sidebar.classList.remove('active');
+              sidebar.style.transform = 'translateX(-100%)';
+            }
+          } catch (error) {
+            console.error('Error in outside click handler:', error);
+          }
+        });
+
+        if (adminIcon && adminDropdown) {
+          adminIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            adminDropdown.classList.toggle('active');
+            console.log('Admin dropdown toggled');
+          });
+          document.addEventListener('click', (e) => {
+            if (!adminIcon.contains(e.target) && !adminDropdown.contains(e.target)) {
+              adminDropdown.classList.remove('active');
+              console.log('Admin dropdown closed');
+            }
+          });
+        }
+
+        const submenuToggles = [
+          { toggle: 'kyc-toggle', submenu: 'kyc-submenu' },
+          { toggle: 'earnings-toggle', submenu: 'earnings-submenu' },
+          { toggle: 'topup-toggle', submenu: 'topup-submenu' },
+          { toggle: 'order-toggle', submenu: 'order-submenu' },
+          { toggle: 'withdrawal-toggle', submenu: 'withdrawal-submenu' },
+          { toggle: 'invoice-toggle', submenu: 'invoice-submenu' },
+          { toggle: 'capping-toggle', submenu: 'capping-submenu' },
+          { toggle: 'gallery-toggle', submenu: 'gallery-submenu' },
+        ];
+
+        submenuToggles.forEach(({ toggle, submenu }) => {
+          const toggleEl = document.getElementById(toggle);
+          const submenuEl = document.getElementById(submenu);
+          const icon = toggleEl?.querySelector('.dropdown-icon');
+
+          if (toggleEl && submenuEl && icon) {
+            toggleEl.addEventListener('click', (e) => {
+              e.preventDefault();
+              const isActive = submenuEl.classList.toggle('active');
+              icon.classList.toggle('active');
+              submenuToggles.forEach(other => {
+                if (other.submenu !== submenu) {
+                  document.getElementById(other.submenu).classList.remove('active');
+                  document.getElementById(other.toggle).querySelector('.dropdown-icon').classList.remove('active');
+                }
+              });
+              console.log(`Submenu ${submenu} toggled, active: ${isActive}`);
+            });
+
+            const submenuLinks = submenuEl.querySelectorAll('a');
+            submenuLinks.forEach(link => {
+              link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                  console.log('Submenu link clicked, closing sidebar');
+                  sidebar.classList.remove('active');
+                  sidebar.style.transform = 'translateX(-100%)';
+                }
+              });
+            });
+
+            document.addEventListener('click', (e) => {
+              if (!toggleEl.contains(e.target) && !submenuEl.contains(e.target)) {
+                submenuEl.classList.remove('active');
+                icon.classList.remove('active');
+                console.log(`Submenu ${submenu} closed`);
+              }
+            });
+          }
+        });
+
+        let mockData = [
+          {
+            id: 'OFF12345',
+            title: 'Summer Discount',
+            description: '20% off on all health supplements for summer season.',
+            fromDate: '2025-05-01',
+            endDate: '2025-06-01',
+            status: 'Active'
+          },
+          {
+            id: 'OFF12346',
+            title: 'Loyalty Bonus',
+            description: 'Earn double points on purchases over ₹1000.',
+            fromDate: '2025-05-03',
+            endDate: '2025-06-03',
+            status: 'Inactive'
+          }
+        ];
+
+        let isDeleteMode = false;
+
+        function formatDate(dateStr) {
+          try {
+            const date = new Date(dateStr);
+            if (isNaN(date.getTime())) {
+              console.warn(`Invalid date: ${dateStr}`);
+              return 'Invalid Date';
+            }
+            const options = { year: 'numeric', month: 'short', day: '2-digit' };
+            const formatted = date.toLocaleDateString('en-US', options).replace(/(\d+),/, '$1,');
+            console.log(`Formatted date for ${dateStr}: ${formatted}`);
+            return formatted;
+          } catch (error) {
+            console.error('Error formatting date:', error);
+            return 'Error';
+          }
+        }
+
+        window.addOffer = () => {
+          try {
+            const id = document.getElementById('offer-id').value.trim();
+            const title = document.getElementById('offer-title').value.trim();
+            const description = document.getElementById('offer-description').value.trim();
+            const fromDate = document.getElementById('offer-from-date').value;
+            const endDate = document.getElementById('offer-end-date').value;
+            const status = document.getElementById('offer-status').value;
+
+            if (!id || !title || !description || !fromDate || !endDate || !status) {
+              alert('All fields are required.');
+              return;
+            }
+
+            if (mockData.some(offer => offer.id.toLowerCase() === id.toLowerCase())) {
+              alert('Offer ID must be unique.');
+              return;
+            }
+
+            if (endDate < fromDate) {
+              alert('End Date must be on or after From Date.');
+              return;
+            }
+
+            mockData.push({
+              id,
+              title,
+              description,
+              fromDate,
+              endDate,
+              status
+            });
+
+            // Clear form
+            document.getElementById('offer-id').value = '';
+            document.getElementById('offer-title').value = '';
+            document.getElementById('offer-description').value = '';
+            document.getElementById('offer-from-date').value = '';
+            document.getElementById('offer-end-date').value = '';
+            document.getElementById('offer-status').value = 'Active';
+
+            // Reset delete mode
+            isDeleteMode = false;
+            const deleteBtn = document.querySelector('.delete-btn');
+            deleteBtn.textContent = 'Delete';
+            deleteBtn.style.background = '#dc3545';
+
+            console.log(`Added offer: ${id}`);
+            renderOfferTable();
+            alert('Offer added successfully.');
+          } catch (error) {
+            console.error('Error adding offer:', error);
+            alert('Failed to add offer. Please try again.');
+          }
+        };
+
+        window.toggleDeleteMode = () => {
+          try {
+            const deleteBtn = document.querySelector('.delete-btn');
+            if (!isDeleteMode) {
+              // Enter delete mode
+              isDeleteMode = true;
+              deleteBtn.textContent = 'Confirm Delete';
+              deleteBtn.style.background = '#c82333';
+              console.log('Entered delete mode');
+            } else {
+              // Confirm deletion
+              const checkedBoxes = document.querySelectorAll('.offer-checkbox:checked');
+              if (checkedBoxes.length === 0) {
+                alert('Please select at least one offer to delete.');
+                return;
+              }
+
+              const offerIds = Array.from(checkedBoxes).map(cb => cb.value);
+              if (confirm(`Are you sure you want to delete ${offerIds.length} selected offer(s)?`)) {
+                mockData = mockData.filter(offer => !offerIds.includes(offer.id));
+                console.log(`Deleted offers: ${offerIds.join(', ')}`);
+                alert('Selected offers deleted successfully.');
+              } else {
+                console.log('Deletion cancelled');
+                return;
+              }
+
+              // Exit delete mode
+              isDeleteMode = false;
+              deleteBtn.textContent = 'Delete';
+              deleteBtn.style.background = '#dc3545';
+            }
+            renderOfferTable();
+          } catch (error) {
+            console.error('Error in toggleDeleteMode:', error);
+            alert('Failed to process deletion. Please try again.');
+          }
+        };
+
+        window.toggleSelectAll = () => {
+          try {
+            const selectAllCheckbox = document.getElementById('select-all-checkbox');
+            const checkboxes = document.querySelectorAll('.offer-checkbox');
+            checkboxes.forEach(cb => cb.checked = selectAllCheckbox.checked);
+            console.log(`Select All toggled: ${selectAllCheckbox.checked}`);
+          } catch (error) {
+            console.error('Error in toggleSelectAll:', error);
+          }
+        };
+
+        window.searchOffers = () => {
+          try {
+            const id = document.getElementById('offer-id-search').value.trim().toLowerCase();
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const status = document.getElementById('status-filter').value;
+            let filtered = mockData;
+
+            if (id) {
+              filtered = filtered.filter(item => item.id.toLowerCase().includes(id));
+            }
+            if (startDate) {
+              filtered = filtered.filter(item => item.fromDate >= startDate);
+            }
+            if (endDate) {
+              filtered = filtered.filter(item => item.endDate <= endDate);
+            }
+            if (status) {
+              filtered = filtered.filter(item => item.status === status);
+            }
+
+            console.log('Filtered offers:', filtered);
+            renderOfferTable(filtered);
+          } catch (error) {
+            console.error('Error searching offers:', error);
+          }
+        };
+
+        function renderOfferTable(data = mockData) {
+          try {
+            const tbody = document.getElementById('offer-table');
+            if (!tbody) {
+              console.error('Table body element not found');
+              return;
+            }
+
+            const thead = document.querySelector('.table thead tr');
+            if (isDeleteMode) {
+              thead.innerHTML = `
+                <th class="select-column"><input type="checkbox" id="select-all-checkbox" onclick="toggleSelectAll()"></th>
+                <th>SI.No</th>
+                <th>Offer ID</th>
+                <th>From Date</th>
+                <th>End Date</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+              `;
+              tbody.innerHTML = data.length > 0 ? data.map((item, index) => {
+                const formattedFromDate = formatDate(item.fromDate);
+                const formattedEndDate = formatDate(item.endDate);
+                console.log(`Rendering row with fromDate: ${formattedFromDate} for ID: ${item.id}`);
+                return `
+                  <tr>
+                    <td class="select-column"><input type="checkbox" class="offer-checkbox" value="${item.id}"></td>
+                    <td>${index + 1}</td>
+                    <td>${item.id}</td>
+                    <td class="date-column">${formattedFromDate}</td>
+                    <td class="date-column">${formattedEndDate}</td>
+                    <td>${item.title}</td>
+                    <td class="description-column">${item.description}</td>
+                    <td class="status-${item.status.toLowerCase()}">${item.status}</td>
+                  </tr>
+                `;
+              }).join('') : `
+                <tr>
+                  <td colspan="8" style="text-align: center; color: #b3e0ff;">No offers found</td>
+                </tr>
+              `;
+            } else {
+              thead.innerHTML = `
+                <th>SI.No</th>
+                <th>Offer ID</th>
+                <th>From Date</th>
+                <th>End Date</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+              `;
+              tbody.innerHTML = data.length > 0 ? data.map((item, index) => {
+                const formattedFromDate = formatDate(item.fromDate);
+                const formattedEndDate = formatDate(item.endDate);
+                console.log(`Rendering row with fromDate: ${formattedFromDate} for ID: ${item.id}`);
+                return `
+                  <tr>
+                    <td>${index + 1}</td>
+                    <td>${item.id}</td>
+                    <td class="date-column">${formattedFromDate}</td>
+                    <td class="date-column">${formattedEndDate}</td>
+                    <td>${item.title}</td>
+                    <td class="description-column">${item.description}</td>
+                    <td class="status-${item.status.toLowerCase()}">${item.status}</td>
+                  </tr>
+                `;
+              }).join('') : `
+                <tr>
+                  <td colspan="7" style="text-align: center; color: #b3e0ff;">No offers found</td>
+                </tr>
+              `;
+            }
+            console.log('Table rendered with', data.length, 'rows, delete mode:', isDeleteMode);
+          } catch (error) {
+            console.error('Error rendering table:', error);
+          }
+        }
+
+        try {
+          console.log('Initial render of table with mockData:', mockData);
+          renderOfferTable();
+        } catch (error) {
+          console.error('Error rendering table:', error);
+        }
+      } catch (error) {
+        console.error('Error in DOMContentLoaded:', error);
+      }
+    });
+  </script>
+</body>
+</html>

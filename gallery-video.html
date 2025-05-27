@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satiys Admin Video Upload</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="assets/style.css" rel="stylesheet">
+ 
+</head>
+<body>
+  <!-- Topbar -->
+  <nav class="topbar text-white flex justify-between items-center">
+    <div class="flex items-center space-x-4">
+      <i class="fas fa-bars sidebar-toggle hidden md:block text-white" id="sidebar-toggle"></i>
+      <i class="fas fa-bars menu-toggle block md:hidden text-white" id="menu-toggle"></i>
+      
+      <!-- Increased scale to 150% -->
+      <img src="images/logo.png" alt="Satiys Logo" class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain transform scale-150">
+      
+      <span style="font-family: Georgia, serif; color: #0A1A2F; text-shadow: 1px 1px 2px #FFD700, 0 0 5px #FFD700; font-size: 1.6rem; font-weight: bold; letter-spacing: 2px;">
+        SATIYS
+      </span>
+    </div>
+    
+    <div class="flex items-center relative">
+      <i class="fas fa-user-circle admin-icon" id="admin-icon"></i>
+      <div class="admin-dropdown" id="admin-dropdown">
+        <a href="profile-details.html" class="dropdown-item">My Profile</a>
+        <a href="change-password.html" class="dropdown-item">Change Password</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <i class="fas fa-times sidebar-expand" id="sidebar-expand"></i>
+      <a href="index.html" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+      <a href="user-id-details.html" data-section="user-id-details"><i class="fas fa-id-card"></i> <span>User-ID Details</span></a>
+      <div class="sidebar-item">
+        <a href="#" id="kyc-toggle"><i class="fas fa-file-upload"></i> <span>KYC</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="kyc-submenu">
+          <a href="Kyc-pending.html" data-section="kyc-pending"><i class="fas fa-hourglass-half"></i> <span>Pending KYC</span></a>
+          <a href="Kyc-history.html" data-section="kyc-history"><i class="fas fa-history"></i> <span>KYC History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="earnings-toggle"><i class="fas fa-money-check-alt"></i> <span>Earning History</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="earnings-submenu">
+          <a href="referral-bonus.html" data-section="earnings-referral"><i class="fas fa-gift"></i> <span>Referral Bonus</span></a>
+          <a href="leadership-bonus.html" data-section="earnings-leadership"><i class="fas fa-trophy"></i> <span>Leadership Bonus</span></a>
+          <a href="rank-reward.html" data-section="earnings-rank"><i class="fas fa-medal"></i> <span>Rank & Reward</span></a>
+
+        </div>
+      </div>
+      
+      <div class="sidebar-item">
+        <a href="#" id="order-toggle"><i class="fas fa-shopping-cart"></i> <span>Order</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="order-submenu">
+          <a href="order-transaction.html" data-section="order-transaction"><i class="fas fa-receipt"></i> <span>Transaction</span></a>
+          <a href="order-transaction-history.html" data-section="order-transaction-history"><i class="fas fa-history"></i> <span>Transaction History</span></a>
+          <a href="order-product.html" data-section="order-product"><i class="fas fa-box"></i> <span>Product Order</span></a>
+          <a href="order-product-history.html" data-section="order-product-history"><i class="fas fa-file-alt"></i> <span>Product History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="withdrawal-toggle"><i class="fas fa-money-bill"></i> <span>Withdrawal</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="withdrawal-submenu">
+          <a href="pending-withdrawal.html" data-section="withdrawal-pending"><i class="fas fa-hourglass-half"></i> <span>Pending Withdrawal</span></a>
+          <a href="withdrawal-history.html" data-section="withdrawal-history"><i class="fas fa-history"></i> <span>Withdrawal History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="invoice-toggle"><i class="fas fa-file-invoice"></i> <span>Invoice</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="invoice-submenu">
+          <a href="invoice-gst.html" data-section="invoice-gst"><i class="fas fa-percent"></i> <span>GST Statement</span></a>
+          <a href="invoice-admin.html" data-section="invoice-admin"><i class="fas fa-user-shield"></i> <span>Service Charges 10%</span></a>
+        </div>
+      </div>
+      
+  <div class="sidebar-item">
+    <a href="#" id="referral-toggle"><i class="fas fa-trophy"></i> <span>My Referrals</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+    <div class="submenu" id="referral-submenu">
+      <a href="taluka.html" data-section="taluka"><i class="fas fa-star"></i> <span>Taluka</span></a>
+      <a href="district.html" data-section="district"><i class="fas fa-star"></i> <span>District</span></a>
+    </div>
+  </div>
+      <a href="company-offer.html" data-section="offer"><i class="fas fa-gift"></i> <span>Company Offer</span></a>
+      <div class="sidebar-item">
+        <a href="#" id="gallery-toggle" class="active"><i class="fas fa-image"></i> <span>Gallery</span> <i class="fas fa-chevron-down dropdown-icon active"></i></a>
+        <div class="submenu active" id="gallery-submenu">
+          <a href="gallery-plan.html" data-section="gallery-plan"><i class="fas fa-file-pdf"></i> <span>Business Plan</span></a>
+          <a href="gallery-photo.html" data-section="gallery-photo"><i class="fas fa-camera"></i> <span>Photo</span></a>
+          <a href="gallery-news.html" data-section="gallery-news"><i class="fas fa-newspaper"></i> <span>News</span></a>
+          <a href="gallery-event.html" data-section="gallery-event"><i class="fas fa-calendar"></i> <span>Event</span></a>
+          <a href="#" data-section="gallery-video" class="active"><i class="fas fa-video"></i> <span>Video</span></a>
+          <a href="gallery-product.html" data-section="gallery-product"><i class="fas fa-box"></i> <span>Product Image</span></a>
+          <a href="gallery-add-product.html" data-section="gallery-add-product"><i class="fas fa-plus"></i> <span>Add Product</span></a>
+        </div>
+      </div>
+      <a href="#" id="sidebar-sign-out"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a>
+    </div>
+
+    <!-- Video Upload Section -->
+    <div class="main-content">
+      <div class="section">
+        <h2 class="text-2xl font-bold mb-4 text-white">Video Upload</h2>
+        <div class="form-container">
+          <form id="video-upload-form">
+            <div class="form-group">
+              <label for="video-file">Upload Video File</label>
+              <input type="file" id="video-file" accept="video/*" required>
+            </div>
+            <div class="form-group">
+              <button type="submit">Upload</button>
+            </div>
+          </form>
+        </div>
+        <div class="table-container" style="max-width: 1000px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>SI.NO</th>
+                <th>DATE</th>
+                <th>VIDEO ADDRESS</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="video-table">
+              <!-- Table rows populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <footer class="main-footer">
+        @2025 Satiys - Developed By Bloom It Solutions
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebarExpand = document.getElementById('sidebar-expand');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+        const menuToggle = document.getElementById('menu-toggle');
+        const adminIcon = document.getElementById('admin-icon');
+        const adminDropdown = document.getElementById('admin-dropdown');
+        const form = document.getElementById('video-upload-form');
+
+        if (!sidebar || !mainContent) {
+          console.error('Sidebar or main-content element not found');
+          return;
+        }
+
+        if (sidebarToggle && sidebarExpand) {
+          sidebarToggle.addEventListener('click', () => {
+            const isCollapsed = sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('collapsed');
+            sidebarExpand.style.display = isCollapsed && window.innerWidth >= 769 ? 'block' : 'none';
+            document.querySelectorAll('.submenu').forEach(submenu => submenu.classList.remove('active'));
+            document.querySelectorAll('.dropdown-icon').forEach(icon => icon.classList.remove('active'));
+          });
+          sidebarExpand.addEventListener('click', () => {
+            sidebar.classList.remove('collapsed');
+            mainContent.classList.remove('collapsed');
+            sidebarExpand.style.display = 'none';
+          });
+        } else {
+          console.warn('Sidebar toggle or expand elements not found');
+        }
+
+        if (menuToggle && sidebar) {
+          menuToggle.addEventListener('click', (e) => {
+            try {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log('Menu toggle clicked');
+              const isActive = sidebar.classList.toggle('active');
+              sidebar.style.transform = isActive ? 'translateX(0)' : 'translateX(-100%)';
+              console.log(`Sidebar toggled to active: ${isActive}`);
+            } catch (error) {
+              console.error('Error in menu toggle:', error);
+            }
+          });
+        } else {
+          console.warn('Menu toggle or sidebar element not found');
+        }
+
+        document.addEventListener('click', (e) => {
+          try {
+            if (window.innerWidth <= 768 && sidebar.classList.contains('active') && !sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+              console.log('Clicked outside sidebar on mobile');
+              sidebar.classList.remove('active');
+              sidebar.style.transform = 'translateX(-100%)';
+            }
+          } catch (error) {
+            console.error('Error in outside click handler:', error);
+          }
+        });
+
+        if (adminIcon && adminDropdown) {
+          adminIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            adminDropdown.classList.toggle('active');
+          });
+          document.addEventListener('click', (e) => {
+            if (!adminIcon.contains(e.target) && !adminDropdown.contains(e.target)) {
+              adminDropdown.classList.remove('active');
+            }
+          });
+        }
+
+        const submenuToggles = [
+          { toggle: 'kyc-toggle', submenu: 'kyc-submenu' },
+          { toggle: 'earnings-toggle', submenu: 'earnings-submenu' },
+          { toggle: 'topup-toggle', submenu: 'topup-submenu' },
+          { toggle: 'order-toggle', submenu: 'order-submenu' },
+          { toggle: 'withdrawal-toggle', submenu: 'withdrawal-submenu' },
+          { toggle: 'invoice-toggle', submenu: 'invoice-submenu' },
+          { toggle: 'referral-toggle', submenu: 'referral-submenu' },
+          { toggle: 'gallery-toggle', submenu: 'gallery-submenu' },
+        ];
+
+        submenuToggles.forEach(({ toggle, submenu }) => {
+          const toggleEl = document.getElementById(toggle);
+          const submenuEl = document.getElementById(submenu);
+          const icon = toggleEl?.querySelector('.dropdown-icon');
+
+          if (toggleEl && submenuEl && icon) {
+            toggleEl.addEventListener('click', (e) => {
+              e.preventDefault();
+              const isActive = submenuEl.classList.toggle('active');
+              icon.classList.toggle('active');
+              submenuToggles.forEach(other => {
+                if (other.submenu !== submenu) {
+                  document.getElementById(other.submenu).classList.remove('active');
+                  document.getElementById(other.toggle).querySelector('.dropdown-icon').classList.remove('active');
+                }
+              });
+            });
+
+            const submenuLinks = submenuEl.querySelectorAll('a');
+            submenuLinks.forEach(link => {
+              link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                  console.log('Submenu link clicked, closing sidebar');
+                  sidebar.classList.remove('active');
+                  sidebar.style.transform = 'translateX(-100%)';
+                }
+              });
+            });
+
+            document.addEventListener('click', (e) => {
+              if (!toggleEl.contains(e.target) && !submenuEl.contains(e.target)) {
+                if (submenu !== 'gallery-submenu') {
+                  submenuEl.classList.remove('active');
+                  icon.classList.remove('active');
+                }
+              }
+            });
+          }
+        });
+
+        let mockData = [
+          {
+            id: 'VIDEO001',
+            videoPath: '/uploads/video1.mp4',
+            uploadedDate: '13/05/2025  ',
+            status: 'Active'
+          },
+          {
+            id: 'VIDEO002',
+            videoPath: '/uploads/video2.mp4',
+            uploadedDate: '13/05/2025 ',
+            status: 'Inactive'
+          }
+        ];
+
+        function formatDateTime(date) {
+          const day = String(date.getDate()).padStart(2, '0');
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const year = date.getFullYear();
+          let hours = date.getHours();
+          const minutes = String(date.getMinutes()).padStart(2, '0');
+          const ampm = hours >= 12 ? 'PM' : 'AM';
+          hours = hours % 12 || 12; // Convert 0 to 12 for 12 AM/PM
+          return `${day}/${month}/${year} ${hours}:${minutes} ${ampm}`;
+        }
+
+        function renderVideoTable(data = mockData) {
+          try {
+            const tbody = document.getElementById('video-table');
+            if (!tbody) {
+              console.error('Table body element not found');
+              return;
+            }
+            tbody.innerHTML = data.length > 0 ? data.map((item, index) => `
+              <tr>
+                <td>${index + 1}</td>
+                <td>${item.uploadedDate}</td>
+                <td><span href="${item.videoPath}" target="_blank">${item.videoPath}</span></td>
+                <td>${item.status}</td>
+                <td>
+                  <button class="delete-btn" onclick="deleteRow('${item.id}')">Delete</button>
+                </td>
+              </tr>
+            `).join('') : `
+              <tr>
+                <td colspan="5" style="text-align: center; color: #b3e0ff;">No videos found</td>
+              </tr>
+            `;
+          } catch (error) {
+            console.error('Error rendering table:', error);
+          }
+        }
+
+        window.deleteRow = (id) => {
+          if (confirm('Are you sure you want to delete this video?')) {
+            mockData = mockData.filter(item => item.id !== id);
+            renderVideoTable();
+          }
+        };
+
+        if (form) {
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const fileInput = document.getElementById('video-file');
+            if (fileInput.files.length > 0) {
+              const currentDate = new Date();
+              // Adjust for IST (UTC+5:30)
+              currentDate.setMinutes(currentDate.getMinutes() + currentDate.getTimezoneOffset() + 330);
+              const newVideo = {
+                id: `VIDEO${String(mockData.length + 1).padStart(3, '0')}`,
+                videoPath: `/uploads/${fileInput.files[0].name}`,
+                uploadedDate: formatDateTime(currentDate),
+                status: 'Active'
+              };
+              mockData.push(newVideo);
+              console.log('Video Uploaded:', newVideo);
+              alert('Video uploaded successfully (simulated).');
+              form.reset();
+              renderVideoTable();
+            } else {
+              alert('Please select a video file to upload.');
+            }
+          });
+        }
+
+        try {
+          renderVideoTable();
+        } catch (error) {
+          console.error('Error rendering table:', error);
+        }
+      } catch (error) {
+        console.error('Error in DOMContentLoaded:', error);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satiys Admin Leadership Bonus</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="assets/style.css" rel="stylesheet">
+ 
+</head>
+<body>
+  <!-- Topbar -->
+  <nav class="topbar text-white flex justify-between items-center">
+    <div class="flex items-center space-x-4">
+      <i class="fas fa-bars sidebar-toggle hidden md:block text-white" id="sidebar-toggle"></i>
+      <i class="fas fa-bars menu-toggle block md:hidden text-white" id="menu-toggle"></i>
+      
+      <!-- Increased scale to 150% -->
+      <img src="images/logo.png" alt="Satiys Logo" class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain transform scale-150">
+      
+      <span style="font-family: Georgia, serif; color: #0A1A2F; text-shadow: 1px 1px 2px #FFD700, 0 0 5px #FFD700; font-size: 1.6rem; font-weight: bold; letter-spacing: 2px;">
+        SATIYS
+      </span>
+    </div>
+    
+    <div class="flex items-center relative">
+      <i class="fas fa-user-circle admin-icon" id="admin-icon"></i>
+      <div class="admin-dropdown" id="admin-dropdown">
+        <a href="profile-details.html" class="dropdown-item">My Profile</a>
+        <a href="change-password.html" class="dropdown-item">Change Password</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <i class="fas fa-times sidebar-expand" id="sidebar-expand"></i>
+      <a href="index.html" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+      <a href="user-id-details.html" data-section="user-id-details"><i class="fas fa-id-card"></i> <span>User-ID Details</span></a>
+      <div class="sidebar-item">
+        <a href="#" id="kyc-toggle"><i class="fas fa-file-upload"></i> <span>KYC</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="kyc-submenu">
+          <a href="Kyc-pending.html" data-section="kyc-pending"><i class="fas fa-hourglass-half"></i> <span>Pending KYC</span></a>
+          <a href="Kyc-history.html" data-section="kyc-history"><i class="fas fa-history"></i> <span>KYC History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="earnings-toggle" class="active"><i class="fas fa-money-check-alt"></i> <span>My Earning History</span> <i class="fas fa-chevron-down dropdown-icon active"></i></a>
+        <div class="submenu active" id="earnings-submenu">
+          <a href="referral-bonus.html" data-section="earnings-referral" ><i class="fas fa-gift"></i> <span>Referral Bonus</span></a>
+          <a href="leadership-bonus.html" data-section="earnings-leadership" class="active"><i class="fas fa-trophy"></i> <span>Leadership Bonus</span></a>
+          <a href="rank-reward.html" data-section="earnings-rank"><i class="fas fa-medal"></i> <span>Rank & Reward</span></a>
+         
+        </div>
+      </div>
+      
+      <div class="sidebar-item">
+        <a href="#" id="order-toggle"><i class="fas fa-shopping-cart"></i> <span>Order</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="order-submenu">
+          <a href="order-transaction.html" data-section="order-transaction"><i class="fas fa-receipt"></i> <span>Transaction</span></a>
+          <a href="order-transaction-history.html" data-section="order-transaction-history"><i class="fas fa-history"></i> <span>Transaction History</span></a>
+          <a href="order-product.html" data-section="order-product"><i class="fas fa-box"></i> <span>Product Order</span></a>
+          <a href="order-product-history.html" data-section="order-product-history"><i class="fas fa-file-alt"></i> <span>Product History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="withdrawal-toggle"><i class="fas fa-money-bill"></i> <span>Withdrawal</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="withdrawal-submenu">
+          <a href="withdrawal-pending.html" data-section="withdrawal-pending"><i class="fas fa-hourglass-half"></i> <span>Pending Withdrawal</span></a>
+          <a href="withdrawal-history.html" data-section="withdrawal-history"><i class="fas fa-history"></i> <span>Withdrawal History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="invoice-toggle"><i class="fas fa-file-invoice"></i> <span>Invoice</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="invoice-submenu">
+          <a href="invoice-gst.html" data-section="invoice-gst"><i class="fas fa-percent"></i> <span>GST Statement</span></a>
+          <a href="invoice-admin.html" data-section="invoice-admin"><i class="fas fa-user-shield"></i> <span>Service Charges 10%</span></a>
+        </div>
+      </div>
+     
+  <div class="sidebar-item">
+    <a href="#" id="referral-toggle"><i class="fas fa-trophy"></i> <span>My Referrals</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+    <div class="submenu" id="referral-submenu">
+      <a href="taluka.html" data-section="taluka"><i class="fas fa-star"></i> <span>Taluka</span></a>
+      <a href="district.html" data-section="district"><i class="fas fa-star"></i> <span>District</span></a>
+    </div>
+  </div>
+      <a href="company-offer.html" data-section="offer"><i class="fas fa-gift"></i> <span>Company Offer</span></a>
+      <div class="sidebar-item">
+        <a href="#" id="gallery-toggle"><i class="fas fa-image"></i> <span>Gallery</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="gallery-submenu">
+          <a href="gallery-plan.html" data-section="gallery-plan"><i class="fas fa-file-pdf"></i> <span>Business Plan</span></a>
+          <a href="gallery-photo.html" data-section="gallery-photo"><i class="fas fa-camera"></i> <span>Photo</span></a>
+          <a href="gallery-news.html" data-section="gallery-news"><i class="fas fa-newspaper"></i> <span>News</span></a>
+          <a href="gallery-event.html" data-section="gallery-event"><i class="fas fa-calendar"></i> <span>Event</span></a>
+          <a href="gallery-video.html" data-section="gallery-video"><i class="fas fa-video"></i> <span>Video</span></a>
+          <a href="gallery-product.html" data-section="gallery-product"><i class="fas fa-box"></i> <span>Product Image</span></a>
+          <a href="gallery-add-product.html" data-section="gallery-add-product"><i class="fas fa-plus"></i> <span>Add Product</span></a>
+        </div>
+      </div>
+      <a href="#" id="sidebar-sign-out"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="section">
+        <!-- Referral Bonus Section -->
+        <h2 class="text-2xl font-bold mb-4 text-white">Leadership Bonus</h2>
+        <div class="search-bar">
+          <select id="kyc-status-filter">
+            <option value="">All KYC Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Verified">Verified</option>
+          </select>
+          <input type="text" placeholder="User ID" id="referral-id-search">
+          <input type="date" id="referral-start-date" placeholder="mm/dd/yyyy">
+          <input type="date" id="referral-end-date" placeholder="mm/dd/yyyy">
+          <button onclick="searchReferral()">Search</button>
+          <button onclick="toggleDeleteCheckboxes()">Delete</button>
+          <button onclick="togglePaidCheckboxes()">Paid</button>
+        </div>
+        <div class="confirm-buttons" id="confirm-buttons">
+          <button onclick="handlePaidAction()" id="confirm-paid" style="display: none;">Confirm Paid</button>
+          <button onclick="handleDeleteAction()" id="confirm-delete" style="display: none;">Confirm Delete</button>
+          <button onclick="cancelAction()">Cancel</button>
+        </div>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="checkbox-column"><input type="checkbox" id="select-all"></th>
+                <th>SI.NO</th>
+                <th class="id-column">USER ID</th>
+                <th class="name-column">USER Name</th>
+                <th class="date-column">Qualified Date</th>
+                <th>BV Points</th>
+                <th>KYC Status</th>
+                <th class="date-column">Paid Date</th>
+                <th class="amount-column">Amount</th>
+                <th class="status-column">Status</th>
+              </tr>
+            </thead>
+            <tbody id="referral-table">
+              <!-- Table rows will be dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <footer class="main-footer">
+        @2025 Satiys - Developed By Bloom It Solutions
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sidebarToggle = document.getElementById('sidebar-toggle');
+      const sidebarExpand = document.getElementById('sidebar-expand');
+      const sidebar = document.querySelector('.sidebar');
+      const mainContent = document.querySelector('.main-content');
+      const menuToggle = document.getElementById('menu-toggle');
+      const adminIcon = document.getElementById('admin-icon');
+      const adminDropdown = document.getElementById('admin-dropdown');
+      const confirmButtons = document.getElementById('confirm-buttons');
+      const confirmPaidButton = document.getElementById('confirm-paid');
+      const confirmDeleteButton = document.getElementById('confirm-delete');
+
+      // Sidebar collapse/expand for desktop
+      if (sidebarToggle && sidebarExpand && sidebar && mainContent) {
+        sidebarToggle.addEventListener('click', () => {
+          const isCollapsed = sidebar.classList.toggle('collapsed');
+          mainContent.classList.toggle('collapsed');
+          sidebarExpand.style.display = isCollapsed && window.innerWidth >= 769 ? 'block' : 'none';
+          document.querySelectorAll('.submenu').forEach(submenu => submenu.classList.remove('active'));
+          document.querySelectorAll('.dropdown-icon').forEach(icon => icon.classList.remove('active'));
+        });
+        sidebarExpand.addEventListener('click', () => {
+          sidebar.classList.remove('collapsed');
+          mainContent.classList.remove('collapsed');
+          sidebarExpand.style.display = 'none';
+        });
+      }
+
+      // Sidebar toggle for mobile
+      if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('active');
+        });
+      }
+
+      // Admin dropdown toggle
+      if (adminIcon && adminDropdown) {
+        adminIcon.addEventListener('click', (e) => {
+          e.stopPropagation();
+          adminDropdown.classList.toggle('active');
+        });
+        document.addEventListener('click', (e) => {
+          if (!adminIcon.contains(e.target) && !adminDropdown.contains(e.target)) {
+            adminDropdown.classList.remove('active');
+          }
+        });
+      }
+
+      // Submenu toggle
+      const submenuToggles = [
+        { toggle: 'kyc-toggle', submenu: 'kyc-submenu' },
+        { toggle: 'earnings-toggle', submenu: 'earnings-submenu' },
+        { toggle: 'topup-toggle', submenu: 'topup-submenu' },
+        { toggle: 'order-toggle', submenu: 'order-submenu' },
+        { toggle: 'withdrawal-toggle', submenu: 'withdrawal-submenu' },
+        { toggle: 'invoice-toggle', submenu: 'invoice-submenu' },
+        { toggle: 'referral-toggle', submenu: 'referral-submenu' },
+        { toggle: 'gallery-toggle', submenu: 'gallery-submenu' },
+      ];
+
+      submenuToggles.forEach(({ toggle, submenu }) => {
+        const toggleEl = document.getElementById(toggle);
+        const submenuEl = document.getElementById(submenu);
+        const icon = toggleEl?.querySelector('.dropdown-icon');
+
+        if (toggleEl && submenuEl && icon) {
+          toggleEl.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isActive = submenuEl.classList.toggle('active');
+            icon.classList.toggle('active');
+            submenuToggles.forEach(other => {
+              if (other.submenu !== submenu) {
+                document.getElementById(other.submenu).classList.remove('active');
+                document.getElementById(other.toggle).querySelector('.dropdown-icon').classList.remove('active');
+              }
+            });
+          });
+
+          const submenuLinks = submenuEl.querySelectorAll('a');
+          submenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              if (window.innerWidth <= 768) {
+                sidebar.classList.remove('active');
+              }
+            });
+          });
+
+          document.addEventListener('click', (e) => {
+            if (!toggleEl.contains(e.target) && !submenuEl.contains(e.target)) {
+              if (submenu !== 'earnings-submenu') {
+                submenuEl.classList.remove('active');
+                icon.classList.remove('active');
+              }
+            }
+          });
+        }
+      });
+
+      // Mock data for Referral Bonus
+      let mockData = [
+        { id: 'REF12346', date: '2025-04-15', name: 'Jane Smith', bvPoint: 250, kycStatus: 'Pending', paidDate: null, amount: '₹7500', status: 'Unpaid' },
+
+        { id: 'REF12348', date: '2025-04-17', name: 'Alice Johnson', bvPoint: 200, kycStatus: 'Verified', paidDate: '2025-04-18', amount: '₹6000', status: 'Paid' }
+      ];
+
+      // Format dates as "MMM DD, YYYY"
+      function formatDate(dateStr) {
+        if (!dateStr) return 'N/A';
+        const date = new Date(dateStr);
+        const options = { year: 'numeric', month: 'short', day: '2-digit' };
+        return date.toLocaleDateString('en-US', options).replace(/(\d+),/, '$1,');
+      }
+
+      // Get current date in YYYY-MM-DD format
+      function getCurrentDate() {
+        const today = new Date();
+        return today.toISOString().split('T')[0];
+      }
+
+      // Toggle Delete Checkboxes
+      window.toggleDeleteCheckboxes = () => {
+        const checkboxes = document.querySelectorAll('.checkbox-column');
+        checkboxes.forEach(checkbox => checkbox.classList.add('active'));
+        document.getElementById('select-all').checked = false;
+        confirmButtons.classList.add('active');
+        confirmPaidButton.style.display = 'none';
+        confirmDeleteButton.style.display = 'inline-block';
+        renderReferralTable(mockData, true);
+      };
+
+      // Toggle Paid Checkboxes
+      window.togglePaidCheckboxes = () => {
+        const checkboxes = document.querySelectorAll('.checkbox-column');
+        checkboxes.forEach(checkbox => checkbox.classList.add('active'));
+        document.getElementById('select-all').checked = false;
+        confirmButtons.classList.add('active');
+        confirmPaidButton.style.display = 'inline-block';
+        confirmDeleteButton.style.display = 'none';
+        renderReferralTable(mockData, true);
+      };
+
+      // Cancel Action
+      window.cancelAction = () => {
+        const checkboxes = document.querySelectorAll('.checkbox-column');
+        checkboxes.forEach(checkbox => checkbox.classList.remove('active'));
+        confirmButtons.classList.remove('active');
+        document.getElementById('select-all').checked = false;
+        renderReferralTable(mockData, false);
+      };
+
+      // Handle Delete Action
+      window.handleDeleteAction = () => {
+        const checkboxes = document.querySelectorAll('.referral-checkbox:checked');
+        if (checkboxes.length === 0) {
+          alert('Please select at least one row to delete.');
+          return;
+        }
+        if (confirm('Are you sure you want to delete the selected rows?')) {
+          const idsToDelete = Array.from(checkboxes).map(checkbox => checkbox.dataset.id);
+          mockData = mockData.filter(item => !idsToDelete.includes(item.id));
+          const checkboxColumns = document.querySelectorAll('.checkbox-column');
+          checkboxColumns.forEach(column => column.classList.remove('active'));
+          confirmButtons.classList.remove('active');
+          renderReferralTable(mockData, false);
+          alert('Selected rows deleted successfully.');
+        }
+      };
+
+      // Handle Paid Action
+      window.handlePaidAction = () => {
+        const checkboxes = document.querySelectorAll('.referral-checkbox:checked');
+        if (checkboxes.length === 0) {
+          alert('Please select at least one row to mark as paid.');
+          return;
+        }
+        const idsToUpdate = Array.from(checkboxes).map(checkbox => checkbox.dataset.id);
+        let updated = false;
+        mockData = mockData.map(item => {
+          if (idsToUpdate.includes(item.id) && item.kycStatus === 'Verified' && item.status === 'Unpaid') {
+            updated = true;
+            return { ...item, status: 'Paid', paidDate: getCurrentDate() };
+          }
+          return item;
+        });
+        const checkboxColumns = document.querySelectorAll('.checkbox-column');
+        checkboxColumns.forEach(column => column.classList.remove('active'));
+        confirmButtons.classList.remove('active');
+        renderReferralTable(mockData, false);
+        if (updated) {
+          alert('Selected rows marked as paid successfully.');
+        } else {
+          alert('No eligible rows (Verified KYC and Unpaid status) were updated.');
+        }
+      };
+
+      // Select All Checkbox
+      const selectAllCheckbox = document.getElementById('select-all');
+      selectAllCheckbox.addEventListener('change', () => {
+        const checkboxes = document.querySelectorAll('.referral-checkbox');
+        checkboxes.forEach(checkbox => {
+          checkbox.checked = selectAllCheckbox.checked;
+        });
+      });
+
+      // Referral Bonus Search
+      window.searchReferral = () => {
+        const kycStatus = document.getElementById('kyc-status-filter').value;
+        const id = document.getElementById('referral-id-search').value;
+        const startDate = document.getElementById('referral-start-date').value;
+        const endDate = document.getElementById('referral-end-date').value;
+        let filtered = mockData;
+        if (kycStatus) filtered = filtered.filter(item => item.kycStatus === kycStatus);
+        if (id) filtered = filtered.filter(item => item.id.includes(id));
+        if (startDate) filtered = filtered.filter(item => item.date >= startDate);
+        if (endDate) filtered = filtered.filter(item => item.date <= endDate);
+        renderReferralTable(filtered, document.querySelector('.checkbox-column').classList.contains('active'));
+      };
+
+      // Render Referral Table
+      function renderReferralTable(data = mockData, showCheckboxes = false) {
+        const tbody = document.getElementById('referral-table');
+        tbody.innerHTML = data.map((item, index) => `
+          <tr>
+            <td class="checkbox-column ${showCheckboxes ? 'active' : ''}">
+              <input type="checkbox" class="referral-checkbox" data-id="${item.id}">
+            </td>
+            <td>${index + 1}</td>
+            <td class="id-column">${item.id}</td>
+            <td class="name-column">${item.name}</td>
+            <td class="date-column">${formatDate(item.date)}</td>
+            <td>${item.bvPoint}</td>
+            <td class="${item.kycStatus === 'Verified' ? 'status-verified' : 'status-pending'}">${item.kycStatus}</td>
+            <td class="date-column">${formatDate(item.paidDate)}</td>
+            <td class="amount-column">${item.amount}</td>
+            <td class="${item.status === 'Paid' ? 'status-paid' : 'status-unpaid'} status-column">${item.status}</td>
+          </tr>
+        `).join('');
+      }
+
+      // Initial render
+      renderReferralTable();
+    });
+  </script>
+</body>
+</html>

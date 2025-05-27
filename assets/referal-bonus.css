@@ -1,0 +1,21 @@
+ 
+
+    .confirm-buttons {
+      display: none;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .confirm-buttons.active {
+      display: flex;
+    }
+
+    
+
+    .checkbox-column {
+      display: none;
+    }
+
+    .checkbox-column.active {
+      display: table-cell;
+    }

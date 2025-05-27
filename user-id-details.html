@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satiys User-ID Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/">
+
+</head>
+<body>
+  <nav class="topbar text-white flex justify-between items-center">
+    <div class="flex items-center space-x-4">
+      <i class="fas fa-bars sidebar-toggle hidden md:block text-white" id="sidebar-toggle"></i>
+      <i class="fas fa-bars menu-toggle block md:hidden text-white" id="menu-toggle"></i>
+      
+      <!-- Increased scale to 150% -->
+      <img src="images/logo.png" alt="Satiys Logo" class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain transform scale-150">
+      
+      <span style="font-family: Georgia, serif; color: #0A1A2F; text-shadow: 1px 1px 2px #FFD700, 0 0 5px #FFD700; font-size: 1.6rem; font-weight: bold; letter-spacing: 2px;">
+        SATIYS
+      </span>
+    </div>
+    
+    <div class="flex items-center relative">
+      <i class="fas fa-user-circle admin-icon" id="admin-icon"></i>
+      <div class="admin-dropdown" id="admin-dropdown">
+        <a href="profile-details.html" class="dropdown-item">My Profile</a>
+        <a href="change-password.html" class="dropdown-item">Change Password</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <div class="sidebar">
+      <i class="fas fa-times sidebar-expand" id="sidebar-expand"></i>
+      <a href="index.html" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+      <a href="user-id-details.html" data-section="user-id-details" class="active"><i class="fas fa-id-card"></i> <span>User-ID Details</span></a>
+      
+      <div class="sidebar-item">
+        <a href="#" id="kyc-toggle"><i class="fas fa-file-upload"></i> <span>KYC</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="kyc-submenu">
+          <a href="Kyc-pending.html" data-section="kyc-pending"><i class="fas fa-hourglass-half"></i> <span>Pending KYC</span></a>
+          <a href="Kyc-history.html" data-section="kyc-history"><i class="fas fa-history"></i> <span>KYC History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="earnings-toggle"><i class="fas fa-money-check-alt"></i> <span>Earning History</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="earnings-submenu">
+          <a href="referral-bonus.html" data-section="earnings-referral"><i class="fas fa-gift"></i> <span>Referral Bonus</span></a>
+          <a href="leadership-bonus.html" data-section="earnings-leadership"><i class="fas fa-trophy"></i> <span>Leadership Bonus</span></a>
+          <a href="rank-reward.html" data-section="earnings-rank"><i class="fas fa-medal"></i> <span>Rank & Reward</span></a>
+          
+        </div>
+      </div>
+    
+      <div class="sidebar-item">
+        <a href="#" id="order-toggle"><i class="fas fa-shopping-cart"></i> <span>Order</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="order-submenu">
+          <a href="order-transaction.html" data-section="order-transaction"><i class="fas fa-receipt"></i> <span>Transaction</span></a>
+          <a href="order-transaction-history.html" data-section="order-transaction-history"><i class="fas fa-history"></i> <span>Transaction History</span></a>
+          <a href="order-product.html" data-section="order-product"><i class="fas fa-box"></i> <span>Product Order</span></a>
+          <a href="order-product-history.html" data-section="order-product-history"><i class="fas fa-file-alt"></i> <span>Product History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="withdrawal-toggle"><i class="fas fa-money-bill"></i> <span>Withdrawal</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="withdrawal-submenu">
+          <a href="pending-withdrawal.html" data-section="withdrawal-pending"><i class="fas fa-hourglass-half"></i> <span>Pending Withdrawal</span></a>
+          <a href="withdrawal-history.html" data-section="withdrawal-history"><i class="fas fa-history"></i> <span>Withdrawal History</span></a>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <a href="#" id="invoice-toggle"><i class="fas fa-file-invoice"></i> <span>Invoice</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="invoice-submenu">
+          <a href="invoice-gst.html" data-section="invoice-gst"><i class="fas fa-percent"></i> <span>GST Statement</span></a>
+          <a href="invoice-admin.html" data-section="invoice-admin"><i class="fas fa-user-shield"></i> <span>Service Charges 10%</span></a>
+        </div>
+      </div>
+      
+
+  <div class="sidebar-item">
+    <a href="#" id="referral-toggle"><i class="fas fa-trophy"></i> <span>My Referrals</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+    <div class="submenu" id="referral-submenu">
+      <a href="taluka.html" data-section="taluka"><i class="fas fa-star"></i> <span>Taluka</span></a>
+      <a href="district.html" data-section="district"><i class="fas fa-star"></i> <span>District</span></a>
+    </div>
+  </div>
+
+      <a href="company-offer.html" data-section="offer"><i class="fas fa-gift"></i> <span>Company Offer</span></a>
+      <div class="sidebar-item">
+        <a href="#" id="gallery-toggle"><i class="fas fa-image"></i> <span>Gallery</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="gallery-submenu">
+          <a href="gallery-plan.html" data-section="gallery-plan"><i class="fas fa-file-pdf"></i> <span>Business Plan</span></a>
+          <a href="#" data-section="gallery-photo"><i class="fas fa-camera"></i> <span>Photo</span></a>
+          <a href="gallery-news.html" data-section="gallery-news"><i class="fas fa-newspaper"></i> <span>News</span></a>
+          <a href="gallery-event.html" data-section="gallery-event"><i class="fas fa-calendar"></i> <span>Event</span></a>
+          <a href="gallery-video.html" data-section="gallery-video"><i class="fas fa-video"></i> <span>Video</span></a>
+          <a href="gallery-product.html" data-section="gallery-product"><i class="fas fa-box"></i> <span>Product Image</span></a>
+          <a href="gallery-add-product.html" data-section="gallery-add-product"><i class="fas fa-plus"></i> <span>Add Product</span></a>
+        </div>
+      </div>
+      <a href="#" id="sidebar-sign-out"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a>
+    </div>
+
+    <div class="main-content">
+      <div class="section">
+        <h2 class="text-2xl font-bold mb-4 text-white">User-ID Details</h2>
+        <div class="search-bar">
+          <input type="text" placeholder="User ID" id="user-id-search">
+          <select id="rank-filter" onchange="searchUsers()">
+            <option value="">All Ranks</option>
+            <option value="Manager">MANAGER</option>
+            <option value="Senior Manager">SENIOR MANAGER</option>
+            <option value="Silver Manager">SILVER MANAGER</option>
+            <option value="Gold Manager">GOLD MANAGER</option>
+            <option value="Diamond Manager">DIAMOND MANAGER</option>
+            <option value="Blue Diamond Manager">BLUE DIAMOND MANAGER</option>
+            <option value="Platinum Manager">PLATINUM MANAGER</option>
+            <option value="Founder">FOUNDER</option>
+            <option value="Director">DIRECTOR</option>
+            <option value="Chairman">CHAIRMAN</option>
+          </select>
+          <button onclick="searchUsers()">Search</button>
+          <button class="delete-button" onclick="deleteSelectedUsers()">Delete</button>
+        </div>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th>SI.No</th>
+                <th>Date Of Joining</th>
+                <th>User Name</th>
+                <th>User ID</th>
+                <th>BV Points</th>
+                <th>Rank</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="user-table">
+              <!-- Table rows populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <footer class="main-footer">
+        @2025 Satiys - Developed By Bloom It Solutions
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebarExpand = document.getElementById('sidebar-expand');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+        const menuToggle = document.getElementById('menu-toggle');
+        const adminIcon = document.getElementById('admin-icon');
+        const adminDropdown = document.getElementById('admin-dropdown');
+
+        if (!sidebar || !mainContent) {
+          console.error('Sidebar or main-content element not found');
+          return;
+        }
+
+        if (sidebarToggle && sidebarExpand) {
+          sidebarToggle.addEventListener('click', () => {
+            const isCollapsed = sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('collapsed');
+            sidebarExpand.style.display = isCollapsed && window.innerWidth >= 769 ? 'block' : 'none';
+            document.querySelectorAll('.submenu').forEach(submenu => submenu.classList.remove('active'));
+            document.querySelectorAll('.dropdown-icon').forEach(icon => icon.classList.remove('active'));
+          });
+          sidebarExpand.addEventListener('click', () => {
+            sidebar.classList.remove('collapsed');
+            mainContent.classList.remove('collapsed');
+            sidebarExpand.style.display = 'none';
+          });
+        } else {
+          console.warn('Sidebar toggle or expand elements not found');
+        }
+
+        if (menuToggle && sidebar) {
+          menuToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const isActive = sidebar.classList.toggle('active');
+            sidebar.style.transform = isActive ? 'translateX(0)' : 'translateX(-100%)';
+          });
+        } else {
+          console.warn('Menu toggle or sidebar element not found');
+        }
+
+        document.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768 && sidebar.classList.contains('active') && !sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+            sidebar.classList.remove('active');
+            sidebar.style.transform = 'translateX(-100%)';
+          }
+        });
+
+        if (adminIcon && adminDropdown) {
+          adminIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            adminDropdown.classList.toggle('active');
+          });
+          document.addEventListener('click', (e) => {
+            if (!adminIcon.contains(e.target) && !adminDropdown.contains(e.target)) {
+              adminDropdown.classList.remove('active');
+            }
+          });
+        }
+
+        const submenuToggles = [
+          { toggle: 'kyc-toggle', submenu: 'kyc-submenu' },
+          { toggle: 'earnings-toggle', submenu: 'earnings-submenu' },
+          { toggle: 'topup-toggle', submenu: 'topup-submenu' },
+          { toggle: 'order-toggle', submenu: 'order-submenu' },
+          { toggle: 'withdrawal-toggle', submenu: 'withdrawal-submenu' },
+          { toggle: 'invoice-toggle', submenu: 'invoice-submenu' },
+          { toggle: 'referral-toggle', submenu: 'referral-submenu' },
+          { toggle: 'gallery-toggle', submenu: 'gallery-submenu' }
+        ];
+
+        submenuToggles.forEach(({ toggle, submenu }) => {
+          const toggleEl = document.getElementById(toggle);
+          const submenuEl = document.getElementById(submenu);
+          const icon = toggleEl?.querySelector('.dropdown-icon');
+
+          if (toggleEl && submenuEl && icon) {
+            toggleEl.addEventListener('click', (e) => {
+              e.preventDefault();
+              const isActive = submenuEl.classList.toggle('active');
+              icon.classList.toggle('active');
+              submenuToggles.forEach(other => {
+                if (other.submenu !== submenu) {
+                  document.getElementById(other.submenu).classList.remove('active');
+                  document.getElementById(other.toggle).querySelector('.dropdown-icon').classList.remove('active');
+                }
+              });
+            });
+
+            const submenuLinks = submenuEl.querySelectorAll('a');
+            submenuLinks.forEach(link => {
+              link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                  sidebar.classList.remove('active');
+                  sidebar.style.transform = 'translateX(-100%)';
+                }
+              });
+            });
+
+            document.addEventListener('click', (e) => {
+              if (!toggleEl.contains(e.target) && !submenuEl.contains(e.target)) {
+                submenuEl.classList.remove('active');
+                icon.classList.remove('active');
+              }
+            });
+          }
+        });
+
+        let mockData = [
+         
+          {
+            id: 'UID12348',
+            dateOfJoining: '2025-04-01',
+            userName: 'Bob Wilson',
+            userId: 'UID12348',
+            bvPoints: 1000,
+            rank: 'Manager',
+            status: 'Enable'
+          },
+     
+          {
+            id: 'UID12354',
+            dateOfJoining: '2025-05-25',
+            userName: 'Henry Clark',
+            userId: 'UID12354',
+            bvPoints: 5000,
+            rank: 'Senior Manager',
+            status: 'Enable'
+          }
+        ];
+
+        function formatDate(dateStr) {
+          try {
+            const date = new Date(dateStr);
+            if (isNaN(date.getTime())) {
+              console.warn(`Invalid date: ${dateStr}`);
+              return 'Invalid Date';
+            }
+            const options = { year: 'numeric', month: 'short', day: '2-digit' };
+            const formatted = date.toLocaleDateString('en-US', options).replace(/(\d+),/, '$1,');
+            return formatted;
+          } catch (error) {
+            console.error('Error formatting date:', error);
+            return 'Error';
+          }
+        }
+
+        window.searchUsers = () => {
+          try {
+            const userId = document.getElementById('user-id-search').value.trim().toLowerCase();
+            const rank = document.getElementById('rank-filter').value;
+            let filtered = mockData;
+
+            if (userId) {
+              filtered = filtered.filter(item => item.userId.toLowerCase().includes(userId));
+            }
+            if (rank) {
+              filtered = filtered.filter(item => item.rank === rank);
+            }
+
+            renderTable(filtered);
+          } catch (error) {
+            console.error('Error searching users:', error);
+          }
+        };
+
+        window.toggleUserStatus = (id) => {
+          try {
+            mockData = mockData.map(item =>
+              item.id === id ? { ...item, status: item.status === 'Enable' ? 'Disable' : 'Enable' } : item
+            );
+            renderTable();
+          } catch (error) {
+            console.error('Error toggling user status:', error);
+          }
+        };
+
+        window.deleteSelectedUsers = () => {
+          try {
+            const selectedIds = Array.from(document.querySelectorAll('input[name="select-user"]:checked')).map(input => input.value);
+            if (selectedIds.length === 0) {
+              alert('Please select at least one user to delete.');
+              return;
+            }
+            if (confirm(`Are you sure you want to delete ${selectedIds.length} user(s)?`)) {
+              mockData = mockData.filter(item => !selectedIds.includes(item.id));
+              renderTable();
+            }
+          } catch (error) {
+            console.error('Error deleting users:', error);
+          }
+        };
+
+        function renderTable(data = mockData) {
+          try {
+            const tbody = document.getElementById('user-table');
+            if (!tbody) {
+              console.error('Table body element not found');
+              return;
+            }
+            tbody.innerHTML = data.length > 0 ? data.map((item, index) => {
+              const formattedDate = formatDate(item.dateOfJoining);
+              const actionButton = item.status === 'Enable'
+                ? `<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded" onclick="toggleUserStatus('${item.id}')">Disable</button>`
+                : `<button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded" onclick="toggleUserStatus('${item.id}')">Enable</button>`;
+              return `
+                <tr>
+                  <td><input type="checkbox" name="select-user" value="${item.id}"></td>
+                  <td>${index + 1}</td>
+                  <td>${formattedDate}</td>
+                  <td>${item.userName}</td>
+                  <td>${item.userId}</td>
+                  <td>${item.bvPoints}</td>
+                  <td>${item.rank}</td>
+                  <td class="status-${item.status.toLowerCase()}">${item.status}</td>
+                  <td>${actionButton}</td>
+                </tr>
+              `;
+            }).join('') : `
+              <tr>
+                <td colspan="9" style="text-align: center; color: #b3e0ff;">No users found</td>
+              </tr>
+            `;
+          } catch (error) {
+            console.error('Error rendering table:', error);
+          }
+        }
+
+        try {
+          renderTable();
+        } catch (error) {
+          console.error('Error rendering table:', error);
+        }
+      } catch (error) {
+        console.error('Error in DOMContentLoaded:', error);
+      }
+    });
+  </script>
+</body>
+</html>

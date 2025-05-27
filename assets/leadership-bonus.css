@@ -1,0 +1,94 @@
+
+
+.confirm-buttons {
+  display: none;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.confirm-buttons.active {
+  display: flex;
+}
+
+.status-pending {
+  color: #ffc107;
+  font-weight: bold;
+  text-align: center;
+}
+
+.status-paid {
+  color: #28a745;
+  font-weight: bold;
+  text-align: center;
+}
+
+.status-verified {
+  color: #17a2b8;
+  font-weight: bold;
+  text-align: center;
+}
+
+.checkbox-column {
+  display: none;
+}
+
+.checkbox-column.active {
+  display: table-cell;
+}
+
+.status-unpaid {
+  color: #ffc107;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.confirm-buttons {
+display: none;
+gap: 10px;
+margin-top: 10px;
+padding: 10px;
+background-color: #0f3460;
+border: 1px solid #00d4ff;
+border-radius: 5px;
+box-shadow: 0 0 5px #00d4ff;
+}
+
+.confirm-buttons.active {
+display: flex;
+}
+
+.confirm-buttons button {
+padding: 8px 16px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 14px;
+}
+
+#confirm-paid {
+background-color: #28a745;
+color: white;
+}
+
+#confirm-paid:hover {
+background-color: #218838;
+}
+
+#confirm-delete {
+background-color: #dc3545;
+color: white;
+}
+
+#confirm-delete:hover {
+background-color: #c82333;
+}
+
+#cancel {
+background-color: #6c757d;
+color: white;
+}
+
+#cancel:hover {
+background-color: #5a6268;
+}
