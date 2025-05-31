@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raanvi Admin TDS 5% Statement</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', 'Helvetica', sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #f5f5f5;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .topbar {
+      background: linear-gradient(to right, #0f3460, #1a1a2e);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1100;
+      padding: 8px;
+    }
+
+    .topbar .admin-icon {
+      color: #b3e0ff;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .topbar .admin-icon:hover {
+      color: #00ffcc;
+    }
+
+    .admin-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 20px;
+      background: #0f3460;
+      border: 2px solid #00d4ff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00d4ff;
+      display: none;
+      z-index: 1200;
+    }
+
+    .admin-dropdown.active {
+      display: block;
+    }
+
+    .admin-dropdown a {
+      display: block;
+      padding: 10px 20px;
+      color: #b3e0ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .admin-dropdown a:hover {
+      background: linear-gradient(to right, #00d4ff, #00ffcc);
+      color: #ffffff;
+    }
+
+    .dashboard-container {
+      display: flex;
+      min-height: calc(100vh - 48px);
+    }
+
+    .sidebar {
+      width: 250px;
+      background: #1a1a2e;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+      border-right: 2px solid #00d4ff;
+      position: fixed;
+      top: 95px;
+      height: calc(100vh - 48px);
+      overflow-y: auto;
+      z-index: 1000;
+      transition: width 0.3s ease, left 0.3s ease-in-out;
+    }
+
+    .sidebar.collapsed {
+      width: 60px;
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      color: #b3e0ff;
+      text-decoration: none;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      border: 1px solid transparent;
+    }
+
+    .sidebar a:hover {
+      background: #0f3460;
+      border: 1px solid #00d4ff;
+      box-shadow: 0 0 10px #00d4ff;
+      color: #b3e0ff;
+      transform: scale(1.03);
+    }
+
+    .sidebar a.active {
+      background: transparent;
+      color: #b3e0ff;
+      font-weight: bold;
+      border: 1px solid #00d4ff;
+      box-shadow: 0 0 15px #00d4ff;
+    }
+
+    .sidebar a i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+      width: 20px;
+      text-align: center;
+      color: #00ffcc;
+    }
+
+    .sidebar.collapsed a {
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .sidebar.collapsed a span {
+      display: none;
+    }
+
+    .sidebar-expand {
+      font-size: 1.5rem;
+      color: #00ffcc;
+      cursor: pointer;
+      margin-bottom: 20px;
+      text-align: center;
+      display: none;
+    }
+
+    .sidebar.collapsed .sidebar-expand {
+      display: block;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .sidebar-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .sidebar .submenu {
+      display: none;
+      background: #0f3460;
+      border: 2px solid #00d4ff;
+      border-radius: 10px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      padding: 10px;
+      box-shadow: 0 0 10px #00d4ff;
+    }
+
+    .sidebar .submenu.active {
+      display: block;
+    }
+
+    .sidebar .submenu a {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      color: #b3e0ff;
+    }
+
+    .sidebar .submenu a i {
+      margin-right: 10px;
+      font-size: 1rem;
+      width: 18px;
+      color: #00ffcc;
+    }
+
+    .sidebar.collapsed .submenu {
+      display: none;
+    }
+
+    .dropdown-icon {
+      margin-left: auto;
+      font-size: 1rem;
+      color: #00ffcc;
+      transition: transform 0.3s ease;
+    }
+
+    .dropdown-icon.active {
+      transform: rotate(180deg);
+    }
+
+    .sidebar.collapsed .dropdown-icon {
+      display: none;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      background: #1a1a2e;
+      margin-left: 250px;
+      overflow-y: auto;
+      min-height: calc(100vh - 48px);
+      display: flex;
+      flex-direction: column;
+      transition: margin-left 0.3s ease;
+    }
+
+    .main-content.collapsed {
+      margin-left: 60px;
+    }
+
+    .section {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    .table-container {
+      background: #0f3460;
+      border-radius: 15px;
+      padding: 20px;
+      border: 2px solid #00d4ff;
+      box-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff inset;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      transition: transform 0.3s;
+      overflow-x: auto;
+    }
+
+    .table-container:hover {
+      transform: scale(1.02);
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #ffffff;
+    }
+
+    .table th, .table td {
+      padding: 12px;
+      border: 1px solid #00d4ff;
+      text-align: center;
+      white-space: nowrap;
+      font-size: 0.95rem;
+    }
+
+    .table th {
+      background: #1a4a8a;
+      font-weight: bold;
+      color: #00ffcc;
+    }
+
+    .table th, .table td {
+      min-width: 100px;
+    }
+
+    .table tbody tr:nth-child(odd) {
+      background: #0f3460;
+    }
+
+    .table tbody tr:hover {
+      background: #1a4a8a;
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      justify-content: center;
+      width: 100%;
+      max-width: 1400px;
+      flex-wrap: wrap;
+    }
+
+    .search-bar input, .search-bar select, .search-bar button {
+      padding: 8px;
+      border: 1px solid #00d4ff;
+      border-radius: 5px;
+      background: #0f3460;
+      color: #ffffff;
+      font-size: 1rem;
+    }
+
+    .search-bar input[type="date"]::-webkit-datetime-edit-text,
+    .search-bar input[type="date"]::-webkit-datetime-edit-month-field,
+    .search-bar input[type="date"]::-webkit-datetime-edit-day-field,
+    .search-bar input[type="date"]::-webkit-datetime-edit-year-field {
+      color: #b3e0ff;
+    }
+
+    .search-bar input::placeholder {
+      color: #b3e0ff;
+    }
+
+    .search-bar select {
+      background: #0f3460;
+    }
+
+    .search-bar button {
+      background: #00d4ff;
+      color: #0f3460;
+      cursor: pointer;
+      border: none;
+    }
+
+    .search-bar button:hover {
+      background: #00ffcc;
+    }
+
+    .status-pending {
+      color: #ffc107;
+      font-weight: bold;
+    }
+
+    .status-processed {
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .main-footer {
+      text-align: center;
+      padding: 10px 20px;
+      color: #b3e0ff;
+      font-size: 0.9rem;
+      border-top: 2px solid #00d4ff;
+      width: 100%;
+      margin-top: auto;
+      background: #0f3460;
+      box-shadow: 0 0 10px #00d4ff;
+    }
+
+    @media (min-width: 769px) {
+      .sidebar-toggle {
+        display: block;
+      }
+      .menu-toggle {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .topbar { padding: 6px; }
+      .topbar .admin-icon { font-size: 1.75rem; }
+      .dashboard-container { flex-direction: column; }
+      .sidebar {
+        width: 250px;
+        transition: left 0.3s ease-in-out;
+        transform: translateX(-100%);
+        border-right: none;
+        border-bottom: 2px solid #00d4ff;
+        position: fixed;
+        top: 65px;
+        left: 0;
+        background: #1a1a2e;
+        box-shadow: 0 0 10px #00d4ff;
+      }
+      .sidebar.active {
+        left:0;
+      }
+      .sidebar.collapsed {
+        width: 250px;
+        transform: translateX(-100%);
+      }
+      .sidebar.collapsed a span {
+        display: block;
+      }
+      .sidebar.collapsed a {
+        justify-content: flex-start;
+      }
+      .sidebar-expand {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .sidebar-toggle {
+        display: none;
+      }
+      .admin-dropdown {
+        right: 10px;
+      }
+      .sidebar .submenu {
+        margin-left: 20px;
+      }
+      .main-content {
+        margin-left: 0;
+        padding: 15px;
+      }
+      .main-content.collapsed {
+        margin-left: 0;
+      }
+      .search-bar {
+        flex-direction: column;
+      }
+      .search-bar input, .search-bar select, .search-bar button {
+        width: 100%;
+        padding: 6px;
+        font-size: 0.9rem;
+      }
+      .table th, .table td {
+        font-size: 0.85rem;
+        padding: 8px;
+        min-width: 80px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .topbar { padding: 6px; }
+      .topbar .admin-icon { font-size: 1.5rem; }
+      .table th, .table td {
+        font-size: 0.75rem;
+        padding: 6px;
+        min-width: 60px;
+      }
+      .search-bar input, .search-bar select, .search-bar button {
+        padding: 5px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+    <nav class="topbar text-white flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <i class="fas fa-bars sidebar-toggle hidden md:block text-white" id="sidebar-toggle"></i>
+          <i class="fas fa-bars menu-toggle block md:hidden text-white" id="menu-toggle"></i>
+          
+          <!-- Increased scale to 150% -->
+          <img src="images/logo.png" alt="Satiys Logo" class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain transform scale-150">
+          
+          <span style="font-family: Georgia, serif; color: #0A1A2F; text-shadow: 1px 1px 2px #FFD700, 0 0 5px #FFD700; font-size: 1.6rem; font-weight: bold; letter-spacing: 2px;">
+            SATIYS
+          </span>
+        </div>
+        
+        <div class="flex items-center relative">
+          <i class="fas fa-user-circle admin-icon" id="admin-icon"></i>
+          <div class="admin-dropdown" id="admin-dropdown">
+            <a href="profile-details.html" class="dropdown-item">My Profile</a>
+            <a href="change-password.html" class="dropdown-item">Change Password</a>
+          </div>
+        </div>
+      </nav>
+    
+      <div class="dashboard-container">
+        <div class="sidebar">
+          <i class="fas fa-times sidebar-expand" id="sidebar-expand"></i>
+          <a href="index.html" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+          <a href="user-id-details.html" data-section="user-id-details"><i class="fas fa-id-card"></i> <span>User-ID Details</span></a>
+          <div class="sidebar-item">
+            <a href="#" id="kyc-toggle"><i class="fas fa-file-upload"></i> <span>KYC</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+            <div class="submenu" id="kyc-submenu">
+              <a href="Kyc-pending.html" data-section="kyc-pending"><i class="fas fa-hourglass-half"></i> <span>Pending KYC</span></a>
+              <a href="Kyc-history.html" data-section="kyc-history"><i class="fas fa-history"></i> <span>KYC History</span></a>
+            </div>
+          </div>
+          <div class="sidebar-item">
+            <a href="#" id="earnings-toggle"><i class="fas fa-money-check-alt"></i> <span>Earning History</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+            <div class="submenu" id="earnings-submenu">
+              <a href="referral-bonus.html" data-section="earnings-referral"><i class="fas fa-gift"></i> <span>Referral Bonus</span></a>
+              <a href="leadership-bonus.html" data-section="earnings-leadership"><i class="fas fa-trophy"></i> <span>Leadership Bonus</span></a>
+              <a href="rank-reward.html" data-section="earnings-rank"><i class="fas fa-medal"></i> <span>Rank & Reward</span></a>
+            </div>
+          </div>
+       
+          <div class="sidebar-item">
+            <a href="#" id="order-toggle"><i class="fas fa-shopping-cart"></i> <span>Order</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+            <div class="submenu" id="order-submenu">
+              <a href="order-transaction.html" data-section="order-transaction"><i class="fas fa-receipt"></i> <span>Transaction</span></a>
+              <a href="order-transaction-history.html" data-section="order-transaction-history"><i class="fas fa-history"></i> <span>Transaction History</span></a>
+              <a href="order-product.html" data-section="order-product"><i class="fas fa-box"></i> <span>Product Order</span></a>
+              <a href="order-product-history.html" data-section="order-product-history"><i class="fas fa-file-alt"></i> <span>Product History</span></a>
+            </div>
+          </div>
+          <div class="sidebar-item">
+            <a href="#" id="withdrawal-toggle"><i class="fas fa-money-bill"></i> <span>Withdrawal</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+            <div class="submenu" id="withdrawal-submenu">
+              <a href="pending-withdrawal.html" data-section="withdrawal-pending"><i class="fas fa-hourglass-half"></i> <span>Pending Withdrawal</span></a>
+              <a href="withdrawal-history.html" data-section="withdrawal-history"><i class="fas fa-history"></i> <span>Withdrawal History</span></a>
+            </div>
+          </div>
+          <div class="sidebar-item">
+            <a href="#" id="invoice-toggle" class="active"><i class="fas fa-file-invoice"></i> <span>Invoice</span> <i class="fas fa-chevron-down dropdown-icon active"></i></a>
+            <div class="submenu active" id="invoice-submenu">
+              <a href="invoice-gst.html" data-section="invoice-gst"><i class="fas fa-percent"></i> <span>GST Statement</span></a>
+              <a href="invoice-admin.html" data-section="invoice-admin"><i class="fas fa-user-shield"></i> <span>Admin Charges 10%</span></a>
+              <a href="invoice-tds.html" data-section="invoice-tds"class="active"><i class="fas fa-indian-rupee-sign"></i><span>Tds 5%</span></a>
+            </div>
+          </div>
+          
+    
+      <div class="sidebar-item">
+        <a href="#" id="referral-toggle"><i class="fas fa-network-wired"></i> <span>Franchise</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="referral-submenu">
+          <a href="taluka.html" data-section="taluka"><i class="fas fa-map-marked-alt"></i> <span>Taluka Franchise</span></a>
+          <a href="district.html" data-section="district"><i class="fas fa-landmark""></i> <span>District Franchise</span></a>
+        </div>
+      </div>
+          <a href="company-offer.html" data-section="offer"><i class="fas fa-gift"></i> <span>Company Offer</span></a>
+          <div class="sidebar-item">
+            <a href="#" id="gallery-toggle"><i class="fas fa-image"></i> <span>Gallery</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+            <div class="submenu" id="gallery-submenu">
+              <a href="gallery-plan.html" data-section="gallery-plan"><i class="fas fa-file-pdf"></i> <span>Business Plan</span></a>
+              <a href="#" data-section="gallery-photo"><i class="fas fa-camera"></i> <span>Photo</span></a>
+              <a href="gallery-news.html" data-section="gallery-news"><i class="fas fa-newspaper"></i> <span>News</span></a>
+              <a href="gallery-event.html" data-section="gallery-event"><i class="fas fa-calendar"></i> <span>Event</span></a>
+              <a href="gallery-video.html" data-section="gallery-video"><i class="fas fa-video"></i> <span>Video</span></a>
+              <a href="gallery-product.html" data-section="gallery-product"><i class="fas fa-box"></i> <span>Product Image</span></a>
+              <a href="gallery-add-product.html" data-section="gallery-add-product"><i class="fas fa-plus"></i> <span>Add Product</span></a>
+            </div>
+          </div>
+          <a href="#" id="sidebar-sign-out"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a>
+        </div>
+
+    <div class="main-content">
+      <div class="section">
+        <h2 class="text-2xl font-bold mb-4 text-white">TDS 5% Statement</h2>
+        <div class="search-bar">
+          <input type="text" placeholder="Transaction ID" id="transaction-id-search">
+          <input type="date" id="start-date">
+          <input type="date" id="end-date">
+          <select id="status-filter">
+            <option value="">All Statuses</option>
+            <option value="Processed">Processed</option>
+            <option value="Pending">Pending</option>
+          </select>
+          <button onclick="searchTransactions()">Search</button>
+        </div>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>SI.No</th>
+                <th>Transaction ID</th>
+                <th>Date</th>
+                <th>User ID</th>
+                <th>Amount</th>
+                <th>TDS Amount (5%)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="tds-table">
+              <!-- Table rows populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <footer class="main-footer">
+        @2025 Raanvi - Developed By Bloom It Solutions
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebarExpand = document.getElementById('sidebar-expand');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+        const menuToggle = document.getElementById('menu-toggle');
+        const adminIcon = document.getElementById('admin-icon');
+        const adminDropdown = document.getElementById('admin-dropdown');
+
+        if (!sidebar || !mainContent) {
+          console.error('Sidebar or main-content element not found');
+          return;
+        }
+
+        if (sidebarToggle && sidebarExpand) {
+          sidebarToggle.addEventListener('click', () => {
+            const isCollapsed = sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('collapsed');
+            sidebarExpand.style.display = isCollapsed && window.innerWidth >= 769 ? 'block' : 'none';
+            document.querySelectorAll('.submenu').forEach(submenu => submenu.classList.remove('active'));
+            document.querySelectorAll('.dropdown-icon').forEach(icon => icon.classList.remove('active'));
+          });
+          sidebarExpand.addEventListener('click', () => {
+            sidebar.classList.remove('collapsed');
+            mainContent.classList.remove('collapsed');
+            sidebarExpand.style.display = 'none';
+          });
+        } else {
+          console.warn('Sidebar toggle or expand elements not found');
+        }
+
+        if (menuToggle && sidebar) {
+          menuToggle.addEventListener('click', (e) => {
+            try {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log('Menu toggle clicked');
+              const isActive = sidebar.classList.toggle('active');
+              sidebar.style.transform = isActive ? 'translateX(0)' : 'translateX(-100%)';
+              console.log(`Sidebar toggled to active: ${isActive}`);
+            } catch (error) {
+              console.error('Error in menu toggle:', error);
+            }
+          });
+        } else {
+          console.warn('Menu toggle or sidebar element not found');
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+          try {
+            if (window.innerWidth <= 768 && sidebar.classList.contains('active') && !sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+              console.log('Clicked outside sidebar on mobile');
+              sidebar.classList.remove('active');
+              sidebar.style.transform = 'translateX(-100%)';
+            }
+          } catch (error) {
+            console.error('Error in outside click handler:', error);
+          }
+        });
+
+        if (adminIcon && adminDropdown) {
+          adminIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            adminDropdown.classList.toggle('active');
+          });
+          document.addEventListener('click', (e) => {
+            if (!adminIcon.contains(e.target) && !adminDropdown.contains(e.target)) {
+              adminDropdown.classList.remove('active');
+            }
+          });
+        }
+
+        const submenuToggles = [
+          { toggle: 'kyc-toggle', submenu: 'kyc-submenu' },
+          { toggle: 'earnings-toggle', submenu: 'earnings-submenu' },
+          { toggle: 'topup-toggle', submenu: 'topup-submenu' },
+          { toggle: 'order-toggle', submenu: 'order-submenu' },
+          { toggle: 'withdrawal-toggle', submenu: 'withdrawal-submenu' },
+          { toggle: 'invoice-toggle', submenu: 'invoice-submenu' },
+          { toggle: 'capping-toggle', submenu: 'capping-submenu' },
+          { toggle: 'gallery-toggle', submenu: 'gallery-submenu' },
+        ];
+
+        submenuToggles.forEach(({ toggle, submenu }) => {
+          const toggleEl = document.getElementById(toggle);
+          const submenuEl = document.getElementById(submenu);
+          const icon = toggleEl?.querySelector('.dropdown-icon');
+
+          if (toggleEl && submenuEl && icon) {
+            toggleEl.addEventListener('click', (e) => {
+              e.preventDefault();
+              const isActive = submenuEl.classList.toggle('active');
+              icon.classList.toggle('active');
+              submenuToggles.forEach(other => {
+                if (other.submenu !== submenu) {
+                  document.getElementById(other.submenu).classList.remove('active');
+                  document.getElementById(other.toggle).querySelector('.dropdown-icon').classList.remove('active');
+                }
+              });
+            });
+
+            const submenuLinks = submenuEl.querySelectorAll('a');
+            submenuLinks.forEach(link => {
+              link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                  console.log('Submenu link clicked, closing sidebar');
+                  sidebar.classList.remove('active');
+                  sidebar.style.transform = 'translateX(-100%)';
+                }
+              });
+            });
+
+            document.addEventListener('click', (e) => {
+              if (!toggleEl.contains(e.target) && !submenuEl.contains(e.target)) {
+                if (submenu !== 'invoice-submenu') {
+                  submenuEl.classList.remove('active');
+                  icon.classList.remove('active');
+                }
+              }
+            });
+          }
+        });
+
+        const mockData = [
+          {
+            id: 'TDS12345',
+            date: '2025-05-01',
+            userId: 'U12345',
+            amount: '₹41665.00',
+            status: 'Processed'
+          },
+          {
+            id: 'TDS12346',
+            date: '2025-05-03',
+            userId: 'U12346',
+            amount: '₹24999.00',
+            status: 'Pending'
+          }
+        ];
+
+        function formatDate(dateStr) {
+          try {
+            const date = new Date(dateStr);
+            if (isNaN(date.getTime())) {
+              console.warn(`Invalid date: ${dateStr}`);
+              return 'Invalid Date';
+            }
+            const options = { year: 'numeric', month: 'short', day: '2-digit' };
+            const formatted = date.toLocaleDateString('en-US', options).replace(/(\d+),/, '$1,');
+            console.log(`Formatted date for ${dateStr}: ${formatted}`);
+            return formatted;
+          } catch (error) {
+            console.error('Error formatting date:', error);
+            return 'Error';
+          }
+        }
+
+        function calculateTDS(amount) {
+          try {
+            const amountNum = parseFloat(amount.replace('₹', '')) || 0;
+            const tds = (amountNum * 0.05).toFixed(2);
+            console.log(`Calculated TDS for ${amount}: ₹${tds}`);
+            return `₹${tds}`;
+          } catch (error) {
+            console.error('Error calculating TDS:', error);
+            return '₹0.00';
+          }
+        }
+
+        window.searchTransactions = () => {
+          try {
+            const id = document.getElementById('transaction-id-search').value.trim();
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const status = document.getElementById('status-filter').value;
+            let filtered = mockData;
+
+            // Prioritize date-wise filtering
+            if (startDate) {
+              filtered = filtered.filter(item => item.date >= startDate);
+            }
+            if (endDate) {
+              filtered = filtered.filter(item => item.date <= endDate);
+            }
+            if (id) {
+              filtered = filtered.filter(item => item.id.toLowerCase().includes(id.toLowerCase()));
+            }
+            if (status) {
+              filtered = filtered.filter(item => item.status === status);
+            }
+
+            renderTable(filtered);
+          } catch (error) {
+            console.error('Error searching transactions:', error);
+          }
+        };
+
+        function renderTable(data = mockData) {
+          try {
+            const tbody = document.getElementById('tds-table');
+            if (!tbody) {
+              console.error('Table body element not found');
+              return;
+            }
+            tbody.innerHTML = data.length > 0 ? data.map((item, index) => {
+              const formattedDate = formatDate(item.date);
+              const tdsAmount = calculateTDS(item.amount);
+              console.log(`Rendering row with date: ${formattedDate} for ID: ${item.id}`);
+              return `
+                <tr>
+                  <td>${index + 1}</td>
+                  <td>${item.id}</td>
+                  <td class="date-column">${formattedDate}</td>
+                  <td>${item.userId}</td>
+                  <td>${item.amount}</td>
+                  <td>${tdsAmount}</td>
+                  <td class="status-${item.status.toLowerCase()}">${item.status}</td>
+                </tr>
+              `;
+            }).join('') : `
+              <tr>
+                <td colspan="7" style="text-align: center; color: #b3e0ff;">No transactions found</td>
+              </tr>
+            `;
+          } catch (error) {
+            console.error('Error rendering table:', error);
+          }
+        }
+
+        try {
+          renderTable();
+        } catch (error) {
+          console.error('Error rendering table:', error);
+        }
+      } catch (error) {
+        console.error('Error in DOMContentLoaded:', error);
+      }
+    });
+  </script>
+</body>
+</html>

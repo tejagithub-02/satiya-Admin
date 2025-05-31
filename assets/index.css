@@ -423,6 +423,31 @@
     border: 2px solid #00CED1;
     box-shadow: 0 0 20px #FFA500;
   }
+  .stats-cards .card:nth-child(21) { /* Total Business */
+    border: 2px solid #FF4500;
+    box-shadow: 0 0 20px #FFFF00;
+  }
+  .stats-cards .card:nth-child(22) { /* Today Business */
+    border: 2px solid #FF69B4;
+    box-shadow: 0 0 20px #FF00FF;
+  }
+  .stats-cards .card:nth-child(23) { /* Total Team (Active / Inactive) */
+    border: 2px solid #39FF14;
+    box-shadow: 0 0 20px #00BFFF;
+  }
+  .stats-cards .card:nth-child(24) { /* Today Team (Active / Inactive) */
+    border: 2px solid #32CD32;
+    box-shadow: 0 0 20px #FF6F61;
+  }
+  .stats-cards .card:nth-child(25) { /* Pending KYC */
+    border: 2px solid #FF00FF;
+    box-shadow: 0 0 20px #FF4500;
+  }
+  .stats-cards .card:nth-child(26) { /* Approved KYC */
+    border: 2px solid #FFFF00;
+    box-shadow: 0 0 20px #39FF14;
+  }
+  
   .card:hover {
     transform: scale(1.03);
   }
