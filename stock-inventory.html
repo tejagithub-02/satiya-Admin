@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Satiys Admin Dashboard</title>
+  <title>Satiys Admin Stock Inventory</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/index.css">
+  <link href="assets/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/referal-bonus.css">
+  
 </head>
 <body>
   <!-- Topbar -->
   <nav class="topbar text-white flex justify-between items-center">
     <div class="flex items-center space-x-4">
       <i class="fas fa-bars sidebar-toggle hidden md:block text-white" id="sidebar-toggle"></i>
-      <i class="fas fa-bars menu-toggle block md:hidden text-white" id="menu-toggle"></i>    
-      <!-- Increased scale to 150% -->
-      <img src="images/logo.png" alt="Satiys Logo" class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain transform scale-150">    
-      <span style="font-family: Georgia, serif; color: gold; font-size: 1.6rem; font-weight: bold; letter-spacing: 2px;">
+      <i class="fas fa-bars menu-toggle block md:hidden text-white" id="menu-toggle"></i>
+      <img src="images/logo.png" alt="Satiys Logo" class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain transform scale-150">
+      <span style="font-family: Georgia, serif; color: #0A1A2F; text-shadow: 1px 1px 2px #FFD700, 0 0 5px #FFD700; font-size: 1.6rem; font-weight: bold; letter-spacing: 2px;">
         SATIYS
       </span>
     </div>
@@ -29,12 +30,13 @@
       </div>
     </div>
   </nav>
-  <!-- Main Content -->
+
+  <!-- Dashboard Container -->
   <div class="dashboard-container">
     <!-- Sidebar -->
     <div class="sidebar">
       <i class="fas fa-times sidebar-expand" id="sidebar-expand"></i>
-      <a href="index.html" data-section="dashboard" class="active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+      <a href="index.html" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
       <a href="user-id-details.html" data-section="user-id-details"><i class="fas fa-id-card"></i> <span>User-ID Details</span></a>
       <div class="sidebar-item">
         <a href="#" id="kyc-toggle"><i class="fas fa-file-upload"></i> <span>KYC</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
@@ -44,15 +46,13 @@
         </div>
       </div>
       <div class="sidebar-item">
-        <a href="#" id="earnings-toggle"><i class="fas fa-money-check-alt"></i> <span>Earning History</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <a href="#" id="earnings-toggle"><i class="fas fa-money-check-alt"></i> <span>My Earning History</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
         <div class="submenu" id="earnings-submenu">
           <a href="referral-bonus.html" data-section="earnings-referral"><i class="fas fa-gift"></i> <span>Referral Bonus</span></a>
           <a href="leadership-bonus.html" data-section="earnings-leadership"><i class="fas fa-trophy"></i> <span>Leadership Bonus</span></a>
           <a href="rank-reward.html" data-section="earnings-rank"><i class="fas fa-medal"></i> <span>Rank & Reward</span></a>
-         
         </div>
       </div>
-     
       <div class="sidebar-item">
         <a href="#" id="order-toggle"><i class="fas fa-shopping-cart"></i> <span>Order</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
         <div class="submenu" id="order-submenu">
@@ -60,12 +60,13 @@
           <a href="order-transaction-history.html" data-section="order-transaction-history"><i class="fas fa-history"></i> <span>Transaction History</span></a>
           <a href="order-product.html" data-section="order-product"><i class="fas fa-box"></i> <span>Product Order</span></a>
           <a href="order-product-history.html" data-section="order-product-history"><i class="fas fa-file-alt"></i> <span>Product History</span></a>
+       
         </div>
       </div>
       <div class="sidebar-item">
         <a href="#" id="withdrawal-toggle"><i class="fas fa-money-bill"></i> <span>Withdrawal</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
         <div class="submenu" id="withdrawal-submenu">
-          <a href="pending-withdrawal.html" data-section="withdrawal-pending"><i class="fas fa-hourglass-half"></i> <span>Pending Withdrawal</span></a>
+          <a href="withdrawal-pending.html" data-section="withdrawal-pending"><i class="fas fa-hourglass-half"></i> <span>Pending Withdrawal</span></a>
           <a href="withdrawal-history.html" data-section="withdrawal-history"><i class="fas fa-history"></i> <span>Withdrawal History</span></a>
         </div>
       </div>
@@ -77,23 +78,21 @@
           <a href="invoice-tds.html" data-section="invoice-tds"><i class="fas fa-indian-rupee-sign"></i><span>Tds 5%</span></a>
         </div>
       </div>
-      
-
-  <div class="sidebar-item">
-    <a href="#" id="referral-toggle"><i class="fas fa-network-wired"></i> <span>Franchise</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
-    <div class="submenu" id="referral-submenu">
-      <a href="taluka.html" data-section="taluka"><i class="fas fa-map-marked-alt"></i> <span>Taluka Franchise</span></a>
-      <a href="district.html" data-section="district"><i class="fas fa-landmark""></i> <span>District Franchise</span></a>
-    </div>
-  </div>
-  <a href="stock-inventory.html" data-section="stock-inventory"><i class="fas fa-warehouse"></i> <span>Stock Inventory</span></a>
+      <div class="sidebar-item">
+        <a href="#" id="referral-toggle"><i class="fas fa-network-wired"></i> <span>Franchise</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
+        <div class="submenu" id="referral-submenu">
+          <a href="taluka.html" data-section="taluka"><i class="fas fa-map-marked-alt"></i> <span>Taluka Franchise</span></a>
+          <a href="district.html" data-section="district"><i class="fas fa-landmark"></i> <span>District Franchise</span></a>
+        </div>
+      </div>
+      <a href="stock-inventory.html" data-section="stock-inventory" class="active"><i class="fas fa-warehouse"></i> <span>Stock Inventory</span></a>
      
       <a href="company-offer.html" data-section="offer"><i class="fas fa-gift"></i> <span>Company Offer</span></a>
       <div class="sidebar-item">
         <a href="#" id="gallery-toggle"><i class="fas fa-image"></i> <span>Gallery</span> <i class="fas fa-chevron-down dropdown-icon"></i></a>
         <div class="submenu" id="gallery-submenu">
           <a href="gallery-plan.html" data-section="gallery-plan"><i class="fas fa-file-pdf"></i> <span>Business Plan</span></a>
-          <a href="#" data-section="gallery-photo"><i class="fas fa-camera"></i> <span>Photo</span></a>
+          <a href="gallery-photo.html" data-section="gallery-photo"><i class="fas fa-camera"></i> <span>Photo</span></a>
           <a href="gallery-news.html" data-section="gallery-news"><i class="fas fa-newspaper"></i> <span>News</span></a>
           <a href="gallery-event.html" data-section="gallery-event"><i class="fas fa-calendar"></i> <span>Event</span></a>
           <a href="gallery-video.html" data-section="gallery-video"><i class="fas fa-video"></i> <span>Video</span></a>
@@ -104,205 +103,78 @@
       <a href="#" id="sidebar-sign-out"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a>
     </div>
 
-    <!-- Dashboard Section -->
+    <!-- Main Content -->
     <div class="main-content">
       <div class="section">
-        <!-- Scrolling Text -->
-        <div class="scrolling-text-container">
-          <div class="scrolling-text">Welcome to SATIYS.</div>
+        <!-- Stock Inventory Section -->
+        <h2 class="text-2xl font-bold mb-4 text-white">Stock Inventory</h2>
+        <div class="search-bar">
+          <input type="text" placeholder="Item Code" id="item-code-search">
+          <input type="text" placeholder="Item Name" id="item-name-search">
+          <select id="category-filter">
+            <option value="">All Categories</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Appliances">Appliances</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Personal Care">Personal Care</option>
+          </select>
+          <input type="text" placeholder="Supplier Name" id="supplier-name-search">
+          <input type="date" id="last-updated-search">
+          <button onclick="searchInventory()">Search</button>
         </div>
-       
-        <!-- Stats Cards -->
-        <div class="stats-cards">
-          <div class="card">
-            <h4>Total Business</h4>
-            <p>₹5,00,000</p>
-            <p>( 25,000 BV )</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 70%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Today Business</h4>
-            <p>₹25,000</p>
-            <p>( 1,250 BV )</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 50%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Total Team</h4>
-            <h4>(Active / Inactive)</h4>
-            <p>300 / 50</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 60%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Today Team</h4>
-            <h4>(Active / Inactive)</h4>
-            <p>10 / 2</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 40%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Pending KYC</h4>
-            <p>15</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 30%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Co-Founder Income</h4>
-            <p>₹1,00,000</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 70%;"></div>
-            </div>
-          </div>
-         
-          <div class="card">
-            <h4>Approved KYC</h4>
-            <p>280</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 80%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Pending Withdrawal</h4>
-            <p>10</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 30%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Paid Withdrawal</h4>
-            <p>150</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 90%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Total Referral Bonus</h4>
-            <p>₹50,000</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 60%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Today Referral Bonus</h4>
-            <p>₹5,000</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 40%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Total Leadership Bonus</h4>
-            <p>₹30,000</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 20%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Today Leadership Bonus</h4>
-            <p>₹3,000</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 70%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Total Rank & Reward</h4>
-            <p>35 / 4</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 60%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Direct Repurchase Income</h4>
-            <p>₹3,000</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 50%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Repurchase Share Income</h4>
-            <p>₹2,000</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 40%;"></div>
-            </div>
-          </div>
-          
-          <div class="card">
-            <h4>Total Rank & Reward</h4>
-            <p>35 / 4</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 60%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Today Rank & Reward</h4>
-            <p>35 / 2</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 50%;"></div>
-            </div>
-          </div>
-          <!-- New Cards Added Below -->
-          <div class="card">
-            <h4>Taluka Franchise</h4>
-            <p>50</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 45%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>District Franchise</h4>
-            <p>10</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 35%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Input Stock</h4>
-            <p>500 Units</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 65%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Output Stock</h4>
-            <p>300 Units</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 55%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Salary / Wallet</h4>
-            <p>( ₹1,00,000 / ₹50,000 )</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 75%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>VIP Package</h4>
-            <p>25 Members</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 50%;"></div>
-            </div>
-          </div>
-          <div class="card">
-            <h4>VIP Income</h4>
-            <p>₹2,00,000</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 50%;"></div>
-            </div>
-          </div>
-          
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Item Code</th>
+                <th>Item Name</th>
+                <th>Category</th>
+                <th>Input Stock</th>
+                <th>Output Stock</th>
+                <th>Available Stock</th>
+                <th>Unit Price (₹)</th>
+                <th>Total Value (₹)</th>
+                <th>Supplier Name</th>
+                <th>Last Updated</th>
+              </tr>
+            </thead>
+            <tbody id="inventory-table">
+              <tr>
+                <td>1</td>
+                <td>ITM001</td>
+                <td>LED TV 32 inch</td>
+                <td>Electronics</td>
+                <td>50 Units</td>
+                <td>20 Units</td>
+                <td>30 Units</td>
+                <td>12,000</td>
+                <td>3,60,000</td>
+                <td>ABC Traders</td>
+                <td>2025-06-05</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>ITM002</td>
+                <td>Mixer Grinder</td>
+                <td>Appliances</td>
+                <td>100 Units</td>
+                <td>60 Units</td>
+                <td>40 Units</td>
+                <td>2,500</td>
+                <td>1,00,000</td>
+                <td>KitchenPro</td>
+                <td>2025-06-04</td>
+              </tr>
+             
+            </tbody>
+          </table>
         </div>
       </div>
       <footer class="main-footer">
         @2025 Satiys - Developed By Bloom It Solutions
       </footer>
-</div>
+    </div>
   </div>
 
   <script>
@@ -355,7 +227,6 @@
       const submenuToggles = [
         { toggle: 'kyc-toggle', submenu: 'kyc-submenu' },
         { toggle: 'earnings-toggle', submenu: 'earnings-submenu' },
-        { toggle: 'topup-toggle', submenu: 'topup-submenu' },
         { toggle: 'order-toggle', submenu: 'order-submenu' },
         { toggle: 'withdrawal-toggle', submenu: 'withdrawal-submenu' },
         { toggle: 'invoice-toggle', submenu: 'invoice-submenu' },
@@ -392,12 +263,63 @@
 
           document.addEventListener('click', (e) => {
             if (!toggleEl.contains(e.target) && !submenuEl.contains(e.target)) {
-              submenuEl.classList.remove('active');
-              icon.classList.remove('active');
+              if (submenu !== 'order-submenu') {
+                submenuEl.classList.remove('active');
+                icon.classList.remove('active');
+              }
             }
           });
         }
       });
+
+      // Stock Inventory Search
+      window.searchInventory = () => {
+        const itemCode = document.getElementById('item-code-search').value.trim().toLowerCase();
+        const itemName = document.getElementById('item-name-search').value.trim().toLowerCase();
+        const category = document.getElementById('category-filter').value;
+        const supplierName = document.getElementById('supplier-name-search').value.trim().toLowerCase();
+        const lastUpdated = document.getElementById('last-updated-search').value;
+
+        const rows = document.querySelectorAll('#inventory-table tr');
+        let visibleRowCount = 0;
+
+        rows.forEach(row => {
+          const cells = row.querySelectorAll('td');
+          if (cells.length === 0) return; // Skip if no cells (e.g., header row)
+
+          const rowItemCode = cells[1].textContent.toLowerCase();
+          const rowItemName = cells[2].textContent.toLowerCase();
+          const rowCategory = cells[3].textContent;
+          const rowSupplierName = cells[9].textContent.toLowerCase();
+          const rowLastUpdated = cells[10].textContent;
+
+          const matchesItemCode = !itemCode || rowItemCode.includes(itemCode);
+          const matchesItemName = !itemName || rowItemName.includes(itemName);
+          const matchesCategory = !category || rowCategory === category;
+          const matchesSupplierName = !supplierName || rowSupplierName.includes(supplierName);
+          const matchesLastUpdated = !lastUpdated || rowLastUpdated === lastUpdated;
+
+          if (matchesItemCode && matchesItemName && matchesCategory && matchesSupplierName && matchesLastUpdated) {
+            row.style.display = '';
+            visibleRowCount++;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        // Add a message if no rows are visible
+        const tbody = document.getElementById('inventory-table');
+        const noDataRow = tbody.querySelector('.no-data-row');
+        if (noDataRow) {
+          noDataRow.remove();
+        }
+        if (visibleRowCount === 0) {
+          const tr = document.createElement('tr');
+          tr.className = 'no-data-row';
+          tr.innerHTML = `<td colspan="11" style="text-align: center; color: #b3e0ff;">No inventory items found</td>`;
+          tbody.appendChild(tr);
+        }
+      };
     });
   </script>
 </body>
